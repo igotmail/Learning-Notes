@@ -1,0 +1,38 @@
+Git From the Inside Out Notes: https://codewords.recurse.com/issues/two/git-from-the-inside-out
+
+** Dan from TCS gave me this Article ** 
+
+== Initialize the Repo ==
+git init: Creates a .git directory and writes some files in it
+	These files deinfe everything about the Git Configuration and the history of the project
+	
+== Add Some Files ==
+printf 'a' > data/number.txt
+git add [data/letter.txt]: This command has 2 effects
+	1) It creates a new blob file in the .git/objects/ directory
+		- This blob file contains the compressed content of the data/letter.txt
+		- It's name is derived by hashing its content. 
+		- Hashing a piece of text means running a program on it that turns it into a smaller piece of text that uniquely identifies the original
+		- For example, the character "a" in letter.txt will be hased into something like 2e65efe2a145dda7ee51d1741299f848e5bf752e
+		- The first 2 characters of the hash are used as the name of a direcotr inside the objects database: .git/objects/2e
+		- The rest of the has is used as the name of the blob file that holds teh content of the added file: .git/objects/2e/65efe2a145dda7ee51d1741299f848e5bf752e
+		- Just by using the add command, Git saves the letter.txt file into the objects directory
+	2) git add adds the file to the index
+		- The index is a list that contains every file taht Git has been told to keep track of
+		- letter.txt is stored as a file at .get/index
+		- Each line of the file maps a tracked file to the hash of its content at the member it was added
+		- This is the index after the git add command is run: data/letter.txt 2e65efe2a145dda7ee51d1741299f848e5bf752e
+		- So, we have an index entry that points to the blob of the letter.txt file
+
+Add another file: (New Blob, Updated Index)
+printf '1234' > data/number.txt
+git add data/number.txt
+	- This is the index after running git add for a second time:
+		data/letter.txt 2e65efe2a145dda7ee51d1741299f848e5bf752e
+		data/number.txt 274c0052dd5408f8ae2bc8440029ff67d79bc5c3
+If a user wanted to update the number.txt file, they can use: printf '1' > data/number.txt
+	- Then use git add number.txt
+	- Adding the same file to the index again will create a new blob with the new content
+	- It also updates the index entry for data/number.txt to point at the new blob
+
+

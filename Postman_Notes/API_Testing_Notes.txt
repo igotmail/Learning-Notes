@@ -1,0 +1,140 @@
+Dylan Lawson
+August 4th 2022
+Pre-Frontier Communications Interview Notes
+Pam Castillo
+
+API Notes:
+	1) Refresh on JSON
+		"Keys" : "Values" --> {
+					"firstName": "Dylan",
+					"lastName": "Lawson",
+					"hobbies": ["bowling", "programming", "games"]
+				  }
+		2 Basic Structures:
+			A collection of name/value pairs (dictionaries, lists, etc)
+			An ordered list of values
+		Objects - an unordered set of comma-separated values
+		Arrays - An ordered set of comma-separated values
+		JSON Validator: http://jsonlint.com (Test our json format)
+	2) Look up a tutorial on Postman
+		GET - Retrieves info
+		POST - Creates info
+		PUT - Updates info
+		DELETE - Delete info
+	3) Look up a tutorial on how to write test cases
+		With Postman, you can write test cases with different types of test cases
+			1) Testing that your api returns a certain HTTP protocal (200, 201, etc.)
+			2) Testing that your api contains certain keys ("Key": "Value")
+			3) Testing that your api contains certain values in keys ** These may be the most common types of test cases **
+			4) Testing that your api contains a certain header (Content-Type)
+			5) Testing that your api meets or is below a certain response time (200 m/s)
+			6) Testing that your post request on the api returns a certain status ("Created")
+	4) API Authentication 
+		Username & Password
+		API Keys/Tokens - API Keys or Access Tokens can be generated and are accessible temporary amount of time
+			You can create one of these keys/tokens by following the API documentation
+		OAuth
+	5) Behavior-Driven Development - Gherkin Syntax (User Cases/Test Case):
+		Behavior-Driven Development - BDD validates "working" software based on the external behavior of hte system, preferable in an automated fashion
+		Given [condition], when I [action], then [result]
+		Feature
+			Scenario
+			Given
+			When
+			Then
+			And
+		These keywords let us describe conditions define the actions we plan to take, describe the results and using and group them together to make sure things make sense
+		SMART - Specific, Measureable, Achievable, Relevant, Time-Boxed
+		INVEST - Independent, Negotiable, Valuable, Estimable, Small, Testable
+	6) HTTP Response Codes
+		100 - Inforamtional codes -> Uncommon to be used in API testing
+		200 - Used to describe some form of success
+			200 OK
+			201 Created (When we've created something successfully)
+			204 Used when we delete something successfully
+		300 - Used to tell the client application (web browser, etc.) that the information is in a new location
+		400 - Used to describe client errors (probably our fault)
+			400 Bad Request
+			401 Unauthorization - User is not authenticated
+			403 Forbidden - User is authenticated but the server won't allow them to do what they attempted
+			404 Not Found - The thing that the user is trying to interact with doesn't exist
+			405 Method Not allowed
+		500 - Used to describe server errors (nothing that we can do about)
+	7) REST API (https://www.ibm.com/cloud/learn/rest-apis & Udemy course)
+		API - Application Programming Interface
+		REST - Representational State Transfer
+		APIs are a mechanism that enables an application or service to access a resource within another application or service
+			Interface is like a contract that allows other applications receive information from another source (Weather app)
+		6 REST Design Principles:
+			1) Uniform Interface
+			2) Client Service Decoupling
+			3) Statelessness
+			4) Cacheability
+			5) Layered System Architecture
+			6) Code on Demand
+		REST APIs communicate via HTTP requests to perform standard database functions 
+			Creating, Reading, Updating, Deleting (CRUD)
+		Request Headers and Parameters include important identifier info such as:
+			Metadata, authorizations, Uniform Resource Identifiers (URIs), caching, cookies, etc.
+	8) Basic Client/Server relationship
+		Client sends a REQUEST to a server API
+		The Server sends a RESPONSE to the Client
+		HTTP enables the client and server to communicate with each other
+		Requests contain:
+			Addresses, Request Method (URL - Uniform Resource Locator), Headers (Addtional Info), Body (Content)
+		Responses contain: 
+			Status Code, Headers, Body
+	9) You can set the base URI (Uniform Resource Identifiers) as a variable in order to avoid any unforseen changes in the api itself
+		For example the https://simple-grocery-store-api.glitch.me is the base URI
+		We can intialize this URI in a variable
+			1) Highlight the URI in Postman
+			2) Select Set as a new variable
+			3) Give it a name (baseUrl)
+			4) Make sure the value is what you highlighted from the API
+			5) Set the scope to as a Global variable (available to all collections) or as to a specific Collection
+		The change you'd see in the address bar is that the https://simple-grocery-store-api.glitch.me would change to your variable name {{baseUrl}}
+		Information in curly brackets {{}} are variables
+	10) For variables, Current Values are private to you. Initial Values are public to everyone that you allow to share your Collection
+		If you want variable to be private, do not enter any sensitive data in the Initial value column
+			Instead place the information under the Current value column
+	11) Queries in APIs can be recognized as a "?" in the API
+	For example {{baseUrl}}/products?category=dairy
+		      |variable| endpoint |query
+	12) You can only use parameters that are expressed in the API documentation
+		If you see a specific key:value pair that you want to query, simply entering the key as a query in the address bar may not work
+		For exmple "id": 1225, the key "id" may not be a parameter that the API would except
+		Instead, the API documentation may list a productID parameter to search for certain IDs in the JSON response
+	13) Some parameters may accept vaules that are not expected according to the API documentation
+		For example, a parameter named "results" may only expect values that are integers
+		If we enter a name like John for the results parameter, the GET request may still return values
+		This may be a possible bug and something that we should communicate to the developement team
+		Parameters that are optional typically allow invalid values to be passed as they don't affect the request/response unless a valid value has been passed
+	14) Path Variables are denoted with colons ":"
+		{{baseUrl}}/products/:productId -> productId is the Path Variable
+		Path Variables are not queries in the API
+	15) With POST requests, you will most likely need to use the JSON in the Body of your request
+		Under the Address bar, choose Body - Raw
+		Then switch the text format from Text to JSON
+		Pay attention to the API documentation as it will tell you what info is acceptable to write in the body of your POST
+	16) You can utilize randomly generated values in the Body - JSON data by using the "$" sign
+		For example: "customerName": "{{$randomFullName}}"
+		Postman should provide a list of random methods for you to use once you enter the "$" sign
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

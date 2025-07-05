@@ -1,0 +1,49 @@
+ChatGPT Notes
+
+What kind of questions you can ask ChatGPT:
+
+Hello! You can ask me a wide range of questions, including but not limited to:
+	General Knowledge: Questions about facts, information, and concepts up to my last update in January 2022.
+		Question: Do you know if your general knowledge of facts, information, and concepts will be updated to include events that occurred in the year 2023?
+		Answer: As of my last training cut-off in January 2022, I don't have real-time updates, and I'm not aware of events that occurred after that date. My training data includes information up to that point.
+			For any events, developments, or changes that have occurred in 2023, I won't have information unless they were widely known or reported before my last update. If there have been significant updates or changes in the world since then, I won't be aware of them.
+
+If there are specific topics or questions you have about events in 2023, I recommend checking more recent and reliable sources for the latest information.
+	Explanations: I can help clarify concepts, explain processes, and provide information on various topics.
+
+	Creative Writing: I can assist with generating creative content, writing prompts, or help develop stories.
+
+	Learning and Education: Questions related to studying, learning strategies, and educational advice.
+
+	Problem-Solving: I can help brainstorm solutions to problems or offer suggestions.
+
+	Programming Help: Basic programming assistance and coding-related queries.
+
+	Language and Linguistics: Questions about grammar, language usage, and linguistic concepts.
+
+	Technology: General information and explanations about technology and its applications.
+
+	Advice: General advice on a variety of topics.
+
+	Fun and Entertainment: Casual conversation, jokes, and more!
+
+----------------------------------------------
+
+Formatting programming questions to help ChatGPT:
+	For programming or coding questions, sharing smaller snippets of code is generally more effective. It allows for focused and concise discussions, making it easier to address specific issues or questions you might have.
+
+	If you have a larger codebase or a more complex problem, you can break it down into smaller parts and share relevant snippets one at a time. This way, we can tackle each piece more effectively.
+
+	To help me provide a more accurate response, you can consider including the following details when sharing code:
+
+	Context: Briefly explain what the code is supposed to do or the problem you are trying to solve. This gives me a better understanding of the overall goal.
+
+	Specific Questions: If you have specific questions about certain lines of code or particular functionalities, point them out. It helps me focus on the areas you find challenging.
+
+	Programming Language: Specify the programming language you are using, as the syntax and conventions can vary.
+
+	Error Messages: If you're encountering errors, share the error messages. They often provide important clues about what might be going wrong.
+
+	Expected vs. Actual Output: If applicable, describe what you expect the code to do and what it is actually doing. This helps identify discrepancies.
+
+	Remember not to share sensitive information or entire codebases unless necessary. By providing these details, you can enhance the accuracy and relevance of the assistance you receive.
