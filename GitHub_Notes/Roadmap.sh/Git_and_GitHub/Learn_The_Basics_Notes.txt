@@ -1,0 +1,38 @@
+Notes from Git and GitHub Roadmap
+
+Section: Learn the Basics
+
+===================================================================================================
+
+Notes from Atlassian Article: https://www.atlassian.com/git/tutorials/what-is-version-control
+
+	It is good practice to create a branch (snapshot) of the main or master branch
+		This allows you to work on the most up to date version of the source code without affecting the live version of the source code
+
+	These terms are the same: 
+		Version Control System (VCS)
+		Source Code Management (SCM)
+		Revision Control System (RCS)
+
+===================================================================================================
+
+Notes from Datacamp Article: https://www.datacamp.com/blog/all-about-git
+
+	Benefits of Version Control Systems: 
+		1) Attributable changes - Every change that’s made can be attributed to a team member. 
+		2) In-depth tracking makes reverting easy - Because every change is tracked, even the very small ones, it’s easy to revert to an earlier version if needed
+			As you can imagine, this is a much-needed feature in software development
+		3) Better organization and communication - Commit messages, messages you send to the team detailing why you made a change, facilitate good communication between team members 
+			They also make it a lot easier if you forget what changes you made in the past!
+		4) Concurrency - In software projects, developers make plenty of changes to the source code
+			Usually, there are numerous developers working on different things
+			One might be tweaking existing code for better security while another is working on a new feature
+			Git enables these developers to work concurrently while helping to prevent any conflict between each developer’s changes
+		5) Branching and merging - Team members can create separate branches to work on the project and then merge their changes with the main branch. Branches are temporary and can be deleted after a merge.
+
+	Other VCS: 
+		- Fossil
+		- Mercurial
+		- Subversion
+
+	
