@@ -1,0 +1,44 @@
+import art
+
+def caesar(plain_text, shift_amount, encode_or_decode):
+  cipher_text = ""
+  for letter in plain_text:
+    if encode_or_decode == "decode":
+      # This reverses the shift amount which is what we need for a decode process
+      # I'm using the abs() function to ensure that the shift_amount is at first positive and then always changed to a negative number. Letting this loop iterate multiple times will multiply a negative number to a negative number, which results in a positive number. We want to ensure that the shift amount is always negative for a decode process. 
+      # For example, if we want to decode mjqqt (hello), we want the cipher to count backwards so that we get "hello" if we shift the letters 5 times. For this, we need a negative number. However, if the shift_amount is multiplied by -1 each loop, it will eventually return to a positive number. We want the shift_amount to always be negative so that it's counting backwards.
+      shift_amount = abs(shift_amount)
+      shift_amount *= -1
+    # This allows us to add special characters and spaces to our message. The spaces and special characters are simply added to the end of the message and the continue keyword starts another iteration of the for loop
+    if letter not in alphabet:
+      cipher_text += letter
+      continue
+    new_position = alphabet.index(letter) + shift_amount
+    cipher_text += alphabet[new_position]
+  print(f"The {encode_or_decode}d text is: {cipher_text}")
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+print(art.logo)
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+
+# This prevents the program from encountering an out of bounds error if the user enters a number greater than the length of the alphabet list. If the user enters a shift number number that does create an out of bounds error, add another 26 characters to the alphabet list to prevent the out of bounds error from happening.
+shift %= int((len(alphabet) / 2))
+
+# Call the caesar function using keyword arguments
+caesar(plain_text=text, shift_amount=shift, encode_or_decode=direction)
+
+# Create a while loop that allows the user to continue to use the program until they're finished
+is_finished = False
+while is_finished == False:
+  finished = input("Would you like to encode/dcode another message? (Yes/No) \n")
+  if finished.lower() == "no":
+    print("Have a wonderful day!")
+    is_finished = True
+  else:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()  
+    shift = int(input("Type the shift number:\n"))    
+    caesar(plain_text=text, shift_amount=shift, encode_or_decode=direction)

@@ -1,0 +1,138 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24\lang9 Dylan Lawson\par
+Dr. Angela Yu\par
+Python Bootcamp\par
+June 30th, 2025\par
+
+\pard\sa200\sl276\slmult1\qc Python Bootcamp Notes\par
+
+\pard\sa200\sl276\slmult1\b\fs28 Section 23: Intermediate - The Turtle Crossing Capstone Project\b0\par
+\ul 170. Day 23 Goals: What we will make by the end of the day\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Here, we will create the Turtle Crossing game\fs28\par
+{\pntext\f2\'B7\tab}\fs24 I've created my own version of the game - Section23_Turtle_Crossing_Game\fs28\par
+{\pntext\f2\'B7\tab}\fs24 I've downloaded Dr. Yu's version of this game - turtle-crossing-final\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Use either project to review how each step was taken to create the game \fs28\par
+{\pntext\f2\'B7\tab}\fs24 It will be composed of: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 1) A player controlled turtle will\fs28\par
+{\pntext\f2\'B7\tab}\fs24 2) Multiple car objects that move left to right\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 In my game, I've had the cars move both left to right and right to left\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 3) A level counter object\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 I've used this level object as a trigger to instantiate car objects onto the screen\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 171. Choose Your Difficulty\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Dr. Yu has given us starting code \par
+{\pntext\f2\'B7\tab}I chose to create the project from scratch as the previous Snake and Pong projects gave me everything that I needed to create the Turtle Crossing game\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 172. How to us the Starter Code\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Dr. Yu goes over the starting code that was provided in the previous session\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 173. Step 1 - Checkout how the game play works\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Dr. Yu has provided a .gif to show us how the game works\fs28\par
+{\pntext\f2\'B7\tab}\fs24 This helps us in breaking down the game's functionalities \fs28\par
+{\pntext\f2\'B7\tab}\fs24 I've added several TODO tasks in my version of the Turtle Crossing game project\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 174. Step 2 - Break down the problem\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Dr. Yu encourages us to break the project down into smaller, more manageable blocks of code\fs28\par
+{\pntext\f2\'B7\tab}\fs24 This helps us complete the program step by step\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 175. Solution to Step 3 - Create the Player Behavior\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Dr. Yu breaks down the program into 5 smaller steps\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 1) Move the turtle with keypress\fs28\par
+{\pntext\f2\'B7\tab}\fs24 2) Create and move the cars\fs28\par
+{\pntext\f2\'B7\tab}\fs24 3) Detect collision with car\fs28\par
+{\pntext\f2\'B7\tab}\fs24 4) Detect when turtle reaches the other side\fs28\par
+{\pntext\f2\'B7\tab}\fs24 5) Create a scoreboard\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Here, we'll focus on the first step: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Move the turtle with keypress\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 I've completed this step in the files of my game\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b\fs24 Section23_Turtle_Crossing_Game - main.py\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Section23_Turtle_Crossing_Game - player.py\b0\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 176. Solution to Step 4 - Create the Car Behavior\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Here we tackle step 2:\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Create and move the cars\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Remember, by default, all turtle objects are 20 by 20 pixels created\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Don't worry if your work is the same a Dr. Yu's \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 The important thing is that you were able to create code that achieved the step above\fs28\par
+{\pntext\f2\'B7\tab}\fs24 There are so many ways to achieve the same goal with different code\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 I've completed this step in the files of my game: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b\fs24 Section23_Turtle_Crossing_Game - main.py\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Section23_Turtle_Crossing_Game - car.py\b0\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 177. Solution to Step 5 - Detect when the Turtle collides with a Car *squish*\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Here we tackle step 3:\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Detect collision with car\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 I've completed this step in the files of my game: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b\fs24 Section23_Turtle_Crossing_Game - main.py\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Section23_Turtle_Crossing_Game - car.py\b0\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 178. Solution to Step 6 - Detect when the Player has reached the other side\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Here we tackle step 4: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Detect when turtle reaches the other side\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 I've completed this step in the files of my game: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b\fs24 Section23_Turtle_Crossing_Game - main.py\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Section23_Turtle_Crossing_Game - player.py\b0\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 179. Solution to Step 7 - Add the Scoreboard and Game Over sequence\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Here we tackle step 5: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Create a scoreboard\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 I've completed this step in the files of my game: \fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b\fs24 Section23_Turtle_Crossing_Game - main.py\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Section23_Turtle_Crossing_Game - game_text.py\b0\fs28\par
+
+\pard\sa200\sl276\slmult1\ul Section 180. This course is not about typing out code\ulnone\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 This course was not designed to just teach us about how the Python programming language works\fs28\par
+{\pntext\f2\'B7\tab}\fs24 It also teaches us about how to think\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 How to structure and organize our thoughts\fs28\par
+{\pntext\f2\'B7\tab}\fs24 How to break down problems in more manageable steps\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 Designing flowcharts\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 How to find solutions on our own when we encounter a new challenge - critical thinking\fs28\par
+{\pntext\f2\'B7\tab}\ul\fs24 Repeating these processes and getting practice with this is how we're going to succeed as programmers\ulnone\fs28\par
+{\pntext\f2\'B7\tab}\ul\fs24 Take advantage of every opportunity that encourages you practice these processes\ulnone\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 This is why Dr. Yu asks us to pause the video and try to see if we can solve a problem ourselves\fs28\par
+{\pntext\f2\'B7\tab}\fs24 The hard part of programming isn't just the code but also the thinking\fs28\par
+
+\pard\sa200\sl276\slmult1\par
+\fs24\par
+\f1\fs22\par
+}
+ 

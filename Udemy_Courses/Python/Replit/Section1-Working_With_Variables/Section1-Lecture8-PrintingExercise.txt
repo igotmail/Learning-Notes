@@ -1,0 +1,16 @@
+# Using the \n Newline character in Strings
+print("FirstName \nLastName \n")
+
+# More complex example
+print("Day 1 - Python Print Function \nThe function is declared like this:\nprint('what to print')\n")
+
+# Here is the official documentation for Lexical Analysis: https://docs.python.org/3/reference/lexical_analysis.html - It contains info on the \n character.
+
+# String Concatenation
+print("Hello" + " " + "World!\n")
+
+# You can use single quotes to wrap double quotes in a print statement
+print('Double quotes are in the middle this time, "Check me out!"\n')
+
+# Python utilizes indentations to recognize scope for variables, functions, classes, etc.
+  print("Indentation Error")

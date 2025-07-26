@@ -1,0 +1,18 @@
+# Lecture 134: Introdcution & Program Requirements for the Higher Lower Game
+
+# Here we discuss what we can to do organize our thoughts and ideas to make the Higher Lower game
+
+# 1) Breakdown the Problem
+# Take the problem as a whole and break it down into smaller, more manageable tasks
+
+# 2) Start with the easiest problem
+# When you have your list of tasks ready, start with what you think is the easier to complete
+
+# 3) For each task, write them as comments in your code
+# Organize each task as comments in your IDE. Once you're ready, begin knocking out each task one at a time
+
+# 4) Write code, run code, fix code
+# With each task, complete writing your code and then run it. If the code is working as intended, then you have completed each task. 
+# Pausing after you've written code for each task is a vital part of making sure that you do not run into any bugs later on in your program
+
+# Breakdown problem - Small task - Organize task - Work on small task - Revise if needed and repeat

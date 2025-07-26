@@ -1,0 +1,87 @@
+from math import ceil  # importing ceil from math package (Used on line 15)
+
+# We can use the Round() function to return a number to the closest multiple of 10 and precisely round a float to a certain decimal point
+
+print("2.6 repeating:", 8 / 3)  # 2.6 repeating
+print("2.6 rounded to the nearest thousandths place:", round(8 / 3, 3))  # 2.667
+print("2.6 repeating rounded to the nearest ones place:", round(8 / 3))
+print("2.6 repeating rounded to the nearest tenths place:", round(8 / 3, 1))
+
+# Round() Python documentation: https://docs.python.org/3/library/functions.html#round
+
+print("==============================================================")
+
+# We can also use what's called Floor Division. This is simply 2 division operators used next to each other - //. It rounds down the result of a division equation to the nearest integer
+
+print("Floor:", 8 // 3)  # prints 2 (2.6 repeating floored would be 2)
+print("Ceiling:", ceil(8 / 3))  # prints 3 (2.6 repeating ceiling would be 3)
+print("Negative Floor:", -8 // 3)  # prints -3 (-2.6 repeating floored would be rounded down to -3 as it is lesser than -2)
+
+# Floor Division Python documentation: https://docs.python.org/3/search.html?q=floor+division&check_keywords=yes&area=default
+
+print("==============================================================")
+
+# You can also take advantage of using mathematical operators together with the = sign
+# This is useful when you have to maniplate a value based on its previous value: score = 0 -> score = score + 1
+print("All 'example variables' equal 4")
+
+additionExample = 4
+additionExample += 2
+print("The += Operator: additionExample += 2 =", additionExample)
+
+subtractionExample = 4
+subtractionExample -= 2
+print("The -= Operator: subtractionExample -= 2 =", subtractionExample)
+
+divisionExample = 4
+divisionExample /= 2
+print("The /= Operator: divisionExample /= 2 =", divisionExample)
+
+multiplicationExample = 4
+multiplicationExample *= 2
+print("The *= Operator: mutiplicationExample *= 2 =", multiplicationExample)
+
+print("==============================================================")
+
+# F-Strings allows us to enter multiple variables that are not of type string into a print statement
+score = 0
+height = 1.8
+isWinning = True
+
+print(f"Your score is {score}, your height is {height}, and are you winning? {isWinning}")
+
+# F-Strings help so you don't have to individually convert each variable to a string by using str() 
+
+print("==============================================================")
+
+# Interactive Coding Exercise
+
+# 🚨 Don't change the code below 👇
+age = input("What is your current age? ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+# 1 year = 365 days
+# 1 year = 52 weeks
+# 1 year = 12 months
+
+# 1) Initialize the total amount of Days, Weeks, and Months in someone's life in a 90 year lifespan
+totalDays = 90 * 365
+totalWeeks = 90 * 52
+totalMonths = 90 * 12
+
+# Refactoring - total variables can handle all calculations
+# totalDays = (90 * 365) - (int(age) * 365)
+# totalWeeks = (90 * 52) - (int(age) * 52)
+# totalMonths = (90 * 12) - (int(age) * 12)
+
+# print(f"You have {totalDays} days, {totalWeeks} weeks, and {totalMonths} months left until you're 90 years of age.")
+
+# 2) Initialize the user gathered info into variables and subtract the total variables by the user gathered info multiplied by their respective days, weeks, or months
+userDays = totalDays - (int(age) * 365)
+userWeeks = totalWeeks - (int(age) * 52)
+userMonths = totalMonths - (int(age) * 12)
+
+# 3) Print the user gathered info variables into an F-String using the same format as the prompt
+print(f"You have {userDays} days, {userWeeks} weeks, and {userMonths} months left until you're 90 years of age.")

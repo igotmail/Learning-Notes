@@ -1,0 +1,117 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24\lang9 Dylan Lawson\par
+Dr. Angela Yu\par
+Python Bootcamp\par
+7th August 2023\par
+
+\pard\sa200\sl276\slmult1\qc Python Bootcamp Notes\par
+
+\pard\sa200\sl276\slmult1\b\fs28 Section 15: Intermediate - Local Development Environment & the Coffee Machine\par
+\ul\b0 137. Installing Python Locally on Your Computer\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 IDE - Integrated Development Environment\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 IDE's are software that specialize in helping you program\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 IDE's can help by:\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 Linting - pointing out syntax or format errors\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Allowing you to install online add-ons that can further enhance your programming experience\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Assistance with debugging issues\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 IDE's such as Spyder, Jupyter, Vim, Thonny, Atom, and Sublime are great choices\fs28 . \fs24 However, the IDE we'll use is PyCharm\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 We'll need to install Python first before we can use PyCharm. Use this link to install the latest version of Python: {{\field{\*\fldinst{HYPERLINK https://www.python.org/downloads/ }}{\fldrslt{https://www.python.org/downloads/\ul0\cf0}}}}\ul\f0\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 This website should automatically detect the type of operating system you're using\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Click on the yellow Download Python (version number) for the latest stable version of Python\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Once the you download the file, open it and check the "Install launcher for all users (recommended) and Add Python (version number) to PATH checkboxes\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Click on Install Now once you're ready\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 After a short installation session, the wizard will ask if you want ot Disable path length limit. Click on this option when ready. \ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Once the wizard states that the setup was successful, you can close the wizard\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 You can open Git Bash and type in "python --version" to know what version of Python is running on your machine\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 138. Download PyCharm for Windows or Mac\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 To download and install PyCharm, first click this link: {{\field{\*\fldinst{HYPERLINK https://www.jetbrains.com/pycharm/ }}{\fldrslt{https://www.jetbrains.com/pycharm/\ul0\cf0}}}}\ul\f0\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 On the website, click the Download button and scroll down to the PyCharm Community Edition\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Click the Download button for the community edition of PyCharm\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 139. PyCharm's Charming Features (while you wait for the download to finish)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 At this point, we've been using Replit as our text editor\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Replit has great features like:\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 Forking your code, sharing code, no setup or installations necessary\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 However, when we move into bigger and more advanced projects, Replit may inevitably run into limitations. These contraints are things we want to avoid\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 With PyCharm, we don't need to worry about these limitations.\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Here's a few of PyCharm features that willl help us program:\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Spell Check\ulnone  - PyCharm will point out any words that need to be corrected\ul\fs28\par
+{\pntext\f2\'B7\tab}\fs24 More Space\ulnone  - You can split two separate files into separate windows. Writing code will be easier as you can view 2 files at once and not bounce back and forth between them\ul\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Built-In Linter\ulnone  - This system checks your code and makes sure that it's in accordance to Python's style guide PEP 8: {{\field{\*\fldinst{HYPERLINK https://peps.python.org/pep-0008/ }}{\fldrslt{https://peps.python.org/pep-0008/\ul0\cf0}}}}\ul\f0\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 If there are non-program breaking issues, PyCharm will let you know to abide by the style guide (whitespace before and after newly declared functions, proper indentation, etc.)\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 PyCharm will tell you what you need to do to abide by these rules by hovering over the affected lines \ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Local History\ulnone  - You can view all of your coding history. PyCharm will place a "before" and "after" version of the file you created side by side and show you what you've changed.\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 You can also revert back to earlier changes if need be\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 You can find this option under Version control - Local History \ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 View Structure\ulnone  - PyCharm can list out all of data structures and variables that you use in the \b Structure \b0 tab on the left indicated by 3 blocks\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 Clicking on the variable, data structure, etc. will bring you to that item in particular in your code\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 This becomes exceptionally helpful the larger your programs become\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\fs24 Refactor Rename\ulnone  - You can rename multiple data structures at once instead of renaming that singular data structure once at a time. \ul\fs28\par
+
+\pard\sa200\sl276\slmult1 140. How to Install PyCharm on Windows\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Follow along with the instructor to learn how to install PyCharm on Windows\ul\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Key Shortcuts:\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\b\fs24 Shift + F10 \b0 - Executes/Runs your Python script\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\b\fs24 Ctrl + F8 \b0 - Toggles a breakpoint on a selected line in your script\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\b\fs24 Alt + Shift + Drag Cursor \b0 - Allows you to type on multiple separate lines\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Tips:\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\b\fs24 Refactor\b0  - Allows you to rename a single data structure that is used on multiple lines \ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 Right click on the data structure - Refactor - Rename - Rename the data structure - Do Refactor\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 File - Settings - Appearance - Appearance & Behavior\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 File - Settings - Editor - Font - Size\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Both these options allow you to chang the font size on PyCharm\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 141. Installing PyCharm on Mac\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 I left this in here in case I wonder where lecture 141 went. \ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 We did not have to do anything this lecture since we're using a Windows machine\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 142. Introduction & Requirements for the Coffee Machine Project\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 I created my own Coffee Machine program in: C:\\Users\\igotm\\PycharmProjects\\Section15_Exercises\\CoffeeMachine\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Requirements for the program can be found in: C:\\Users\\igotm\\OneDrive\\Documents\\Udemy_Courses\\Python\\Section15-Day15\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 143. Solution & Walkthrough for the Coffee Machine Code\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 I followed along with Professor Yu to know how she approached the Coffee Machine project: C:\\Users\\igotm\\PycharmProjects\\Section15_Exercises\\InstructorsCoffeeMachine\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 I learned that you can use a for loops iteratable variable to compare items between 2 dictionaries:\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 Line 43: order_ingredients[item] >= resources[item]:\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Line 92: resources[item] -= order_ingredients[item]\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 144. Location, Location, Location - Pavlov's Coding Corner\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Be sure to pick a location to study that isn't already used for things like TV, games, or other distractions\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Studying in a designated area for studying can help you get into the right mindset to study and not procrastinate\ul\fs28\par
+
+\pard\sa200\sl276\slmult1\par
+\par
+\ulnone\f1\fs22\par
+}
+ 

@@ -1,0 +1,289 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24\lang9 Dylan Lawson\par
+Dr. Angela Yu\par
+Python Bootcamp\par
+11 April 2024\par
+
+\pard\sa200\sl276\slmult1\qc Python Bootcamp Notes\par
+
+\pard\sa200\sl276\slmult1\b\fs28 Section 21: Intermediate - Build the Snake Game Part 2: Inheritance & List Slicing\par
+\ul\b0 190. Day 21 Goals: What we will make by the end of the day\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Here we will learn about:\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Class Inheritance, Slicing, and finish the Snake game\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Class Inheritance\b0  - this is the idea that classes can inherit attributes and methods from other classes\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Basically, a \b child/derived \b0 class is able to use the same code used in a \b parent/base \b0 class. \b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Inheritance documentation: \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1 {\b0\fs24{\field{\*\fldinst{HYPERLINK https://docs.python.org/3/tutorial/classes.html#inheritance }}{\fldrslt{https://docs.python.org/3/tutorial/classes.html#inheritance\ul0\cf0}}}}\f0\fs28\par
+{\pntext\f2\'B7\tab}{\b0\fs24{\field{\*\fldinst{HYPERLINK https://www.w3schools.com/python/python_inheritance.asp }}{\fldrslt{https://www.w3schools.com/python/python_inheritance.asp\ul0\cf0}}}}\f0\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Slicing - \b0 the ability to individually use a specific index or indexes in an iterable object like lists, dictionaries, tuples, strings, etc.\b\fs28\par
+
+\pard\sa200\sl276\slmult1\ul\b0 191. Class Inheritance\ulnone\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 PyCharm: Section21_Lecture191_ClassInhertiance\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Replit: Section21_Lecture191_ClassInhertiance\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Here, we review Class Inhertiance more closely\b\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Inhertiance \b0 is 1 of the 4 basic principles of Object Oriented Programming\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 When using inheritance, 1 class will inherit the same attributes and methods from another class\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 The class that inherits the code is the \b child or derived \b0 class\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The class that gives the code to a child class is called a \b parent or base \b0 class\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 One reason why we would use inhertiance is to add more functionalities to the child class after it receives everything from a parent class\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 For example, let's say we have a Chef() class:\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 class Chef():\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 def bake(), def stir(), def measure() \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 These methods could be used to create a more specific class like a pastry chef\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Instead of creating the PastryChef() class from scratch, we can take the existing functionality from the Chef() class and hand it over to the PastryChef() class\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 class PastryChef():\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 def bake(), def stir(), def measure(), def knead(), def whisk()\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 This process of inheriting behavior and appearance from an existing class is known as class inheritance\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ul\b0\fs24 Appearance\ulnone  can be another way of saying attributes - what the class has\b\fs28\par
+{\pntext\f2\'B7\tab}\ul\b0\fs24 Behavior\ulnone  can be another way of saying methods - what the class does\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 In Replit, \b Section21_Lecture191_ClassInhertiance \b0 shows a basic example of Class Inheritance \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 To allow a class to inherit from another class, we start by passing the parent class as an argument to the child class\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 class Monkey(Animal)\b0\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 Afterwards, we then use the \b super()\b0  method in the child class' init method. \f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 def __init__(self):\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b\f0\fs24 super().__init__()\b0\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 You'll sometimes here the parent class be referred to as the "super" class\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 So a parent class can be called - Base, Parent, Super\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 A child class can be called - Derived, Child\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 So, by passing the parent class as an argument to the child class and using the super() method in the child classes init method, the program now knows that the child class inherits all the \ul attributes\ulnone  and \ul methods\ulnone  from the parent class\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 We've also learned to modify an existing method from the Animal class and modify it in the Monkey class\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 We do this by using the super() function: \f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\f0\fs24 def breathe(self):\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li2160\sa200\sl276\slmult1\b\f0\fs24 super().breathe()\b0\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 This means that we're calling the super class, Animal, and then stepping into the breathe method\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Any code that we write after calling this method from the Animal class will be additional instructions\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 So, the code from the breathe() method from the Animal class will be executed first and then any code left in the breathe() method from the Monkey class will be executed second. We're extending the functionality of the breathe() method.\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 Inheritance allows us to take an existing class and then build on top of it without having to reinvent the wheel.\f1\fs22\par
+
+\pard\sa200\sl276\slmult1\ul\f0\fs28 192. Detect Collisions with Food\ulnone\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b\f0\fs24 Section21_Lecture191_ClassInhertiance - food.py\b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Here, we tackle the 4th step in building the snake game: Detect Collision with Food\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 The snake should be able to collide with a blue circle that we'll designate as food\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Once the snake has collided with the food, 2 things will happen:\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 1) The snake will obtain 1 additional segment to the snake body\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 2) The food will despawn and respawn at a new random location that is not already occupied by the snake\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 This will be done by creating a \b Food()\b0  class\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 Remember, classes capture the behavior of certain objects. \f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 We already have a Snake() class to capture the behavior of the snake body\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Now, we're creating a Food() class to capture the behavior fo the food object\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 The Food() class is in the food.py file\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 We import the Turtle() class from the turtle module and pass the Turtle() class in the Food() class\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Then, we use the super().__init__ keywords in the Food() class' __init__ method\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 This enables use to use the \b methods \b0 and \b attributes \b0 from the Turtle() class\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 This also allows us to skip the initialization process of creating a new turtle object\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 Since the Food() class has all the methods and attributes the Turtle() class has, we don't need to write a line of code that says: self.food = Turtle()\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 We can simply write: self.shape("circle") and this would be valid\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 We also use the randint() function to designate random coordinates for the food object once it spawns. This behavior is saved under the \b refresh() \b0 method\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 In the main.py file, we then use the distance() method to detect collision with the snake object and the food object\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 if \b snake.head.distance(food)) < 15 \b0 -> 15 refers to the number of pixels between the snake and the food object\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Basically, the \b distance() \b0 method uses the object that it's called from and compares that object to a \ul number\ulnone , \ul vector pair\ulnone , or another \ul turrtle instance\ulnone\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 In this case, we're telling the programm to monitor the distance between the 1st snake segment and the food object. If the distance is less than 15 pixels, move the food object\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 I added 3 more methods to the snake.py file. These are not a part of the lecture. I made these on my own\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b\f0\fs24 add_snake_segment() \b0 - adds a new segment to the snake body\f1\fs22\par
+{\pntext\f2\'B7\tab}\b\f0\fs24 find_tail() \b0 - finds the last segment on the snake body\f1\fs22\par
+{\pntext\f2\'B7\tab}\b\f0\fs24 tail_collision() \b0 - detects if the 1st segment of the snake is 15 pixels away from the last segment of the snake\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 I knew that I could create these because the professor has done a great job of showing us code that we can reuse\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 I reused the code from initially creating the 3 snake segments and the move() method to create \b add_snake_segment() \b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 I then used the code from the distance() example to create \b find_tail() \b0 and \b tail_collision() \b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 More notes on these methods are in the \b Section21_Lecture191_ClassInhertiance \b0 file\f1\fs22\par
+
+\pard\sa200\sl276\slmult1\ul\f0\fs28 193. Create a Scoreboard and Keep Score\ulnone\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b\f0\fs24 Section21_Lecture191_ClassInhertiance - scoreboard.py\b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Here, we tackle the 5th step in building the snake game: Create a Scoreboard\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 The Scoreboard will be text at the top of the screen\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 This scoreboard will:\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 1) Keep track of the player's score. Increments by 1 each time the player touches a piece of food\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 2) This scoreboard will also be a turtle object. The Turtle class has a \b write()\b0  method that allows turtles to write text. The turtle itself does not have to be visible\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1 {\f0\fs24{\field{\*\fldinst{HYPERLINK https://docs.python.org/3/library/turtle.html#turtle.write }}{\fldrslt{https://docs.python.org/3/library/turtle.html#turtle.write\ul0\cf0}}}}\f1\fs22\par
+{\pntext\f2\'B7\tab}{\f0\fs24{\field{\*\fldinst{HYPERLINK https://docs.python.org/3/library/turtle.html#turtle.clear }}{\fldrslt{https://docs.python.org/3/library/turtle.html#turtle.clear\ul0\cf0}}}}\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 To start, we create the scoreboard.py file \f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Inside the file, we'll create the Scoreboard class. This class will inherit the Turtle class\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 Remember to pass the Turtle class as an argument in the class declaration\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 class Scoreboard(Turtle)\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 Also, remember to call the super().__init__() function inside of the class' __init__(self) method\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 def __init__(self):\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\f0\fs24 super().__init__()\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 Afterwards, we establish the scoreboard turtle's attributes. Information shown in the scoreboard.py file\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Then we create the increase_score() method. This will be called each time the turtle touches the food\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 Once the scoreboard class is created and finished. We then initialize a scoreboard turtle in the main.py file\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Then we call the increase_score() method in the while loop\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 One thing I learned about the write() method is that you need to use the clear() method in conjuction with it. \f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 Without the \b clear() \b0 method, the \b write() \b0 method simply layers whatever text that you enter on top of each other. \f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 For example, asking the scoreboard turtle to write an incrementing number will have it write 0, 1, 2, 3, 4, 5, etc. all on top of each other. \f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 So, each time you increment the self.score attribute, call the \b clear() \b0 method to briefly erase what the scoreboard turtle wrote and then write it again with the \b write() \b0 method\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\f0\fs24 We've also created the \b update_scoreboard()\b0  method to be responsible for writing the scoreboard object on the snake_screen object\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 The write() method we were using was in multiple places. So, creating a method that reduces the amount of times we have to write the same thing is a good idea\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Remember, functions and methods can be used/created when you notice that you're writing the same code repeatedly. With functions and methods, you can eliminate redundancy\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 This \b update_scoreboard() \b0 method is called in the scoreboard class' init method and in the \b increase_score() \b0 method\f1\fs22\par
+
+\pard\sa200\sl276\slmult1\ul\f0\fs28 194. Detect Collisions with the Wall\ulnone\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b\f0\fs24 Section21_Lecture191_ClassInhertiance - main.py\b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\b\f0\fs24 Section21_Lecture191_ClassInhertiance - snake.py - wall_collision()\b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\b\f0\fs24 Section21_Lecture191_ClassInhertiance - scoreboard.py - game_over()\b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 Here, we tackle the 6th step in building the snake game: Detect collision with wall\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 The way we can do this is knowing how large our game screen is\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\f0\fs24 In previous lectures, we know that the game screen is 600 pixels in width and 600 pixels in height\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 This means that the range of the x-axis is (-300, 300) and the range of the y-axis is (-300, 300)\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 So, we can use these boundaries to our advantage and detect if the position snake's head has gone passed these limitations\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 The professor adds code to the main.py file, but I think the wall collision behavior belongs under the snake.py and scoreboard.py file. There's nothing wrong with this, we're simply just organizing our code differently. At the end of the day, both ideas can still work\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 The snake.py file has the wall_collision() method. This detects if the first segment of the snake goes beyond -280 or 280 for the x and y axis\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\f0\fs24 The professor used the xcor() and ycor() methods to capture the x and y coordinates of the snake's 1st segment or head\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\f0\fs24 The scoreboard.py file has the game_over() method. This method writes any additional line of text on the snake_screen objec that says "Game Over"\f1\fs22\par
+{\pntext\f2\'B7\tab}\f0\fs24 We then use these 2 methods in an if statement in the main.py file\f1\fs22\par
+
+\pard\sa200\sl276\slmult1\ul\f0\fs28 195. Detect Collisions with your own Tail\ulnone\f1\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b\f0\fs24 Section21_Lecture191_ClassInhertiance - main.py\b0\f1\fs22\par
+{\pntext\f2\'B7\tab}\b\f0\fs24 Section21_Lecture191_ClassInhertiance - snake.py - add_segment() & extend()\b0\par
+{\pntext\f2\'B7\tab}Here, we tackle the 7th step in building the snake game: Detect collision with tail\par
+{\pntext\f2\'B7\tab}To start, we first revise the Snake class\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1 We create the \b add_segment(self, position)\b0  method to take over as the method that creates the snake\par
+{\pntext\f2\'B7\tab}As for the \b create_snake() \b0 method on line 64, this method now calls the add_segment method\par
+{\pntext\f2\'B7\tab}Then we create the \b extend()\b0  method. This method simply adds one additional segment to the snake body\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1 It finds the position of the last snake segment and finds the position of the segment by using the \b position() \b0 method. This method returns a tuple\par
+{\pntext\f2\'B7\tab}This tuple is then passed as an argument to the \b add_segment(self, position)\b0  method and the \b add_segment()\b0  method runs 1 additional time to add 1 more segment to the snake\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1 Afterwards, we use the \b extend()\b0  method in the main.py file under the if block that detects if the head of the snake is less than 15 pixels away from the food object\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 The next part is detecting collision with the snake's body\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1 The professor creates a for loop in the main.py file\par
+{\pntext\f2\'B7\tab}In this for loop, we loop through each of the segments of the snake and detect if the head (first segement of the snake) is less than 10 pixels away from another segment:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b for segment in snake.snake_segments:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1 if snake.head.distance(segement) < 10:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li2160\sa200\sl276\slmult1 game_is_on = True\par
+{\pntext\f2\'B7\tab}scoreboard.game_over()\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 The 1 problem with this is the for loop will go through each segment including the snake's head\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0 So, in the first iteration of this for loop, the loop will check if the snake's head is less than 10 pixels away from the snake's head\b\par
+{\pntext\f2\'B7\tab}\b0 This will cause the game to immediately go into its game over state\b\par
+{\pntext\f2\'B7\tab}\b0 To solve this issue, we can tell the for loop to \b pass \b0 or \b continue \b0 if the local segment variable is equal to the snake.head\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1 for segment in snake.snake_segments:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li2160\sa200\sl276\slmult1 if segment == snake.head:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li2520\sa200\sl276\slmult1 pass (you can also use continue here)\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0 This should solve the problem\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 Also, keep in mind that the 2nd snake segment is never less than 10 pixels away because the \b move()\b0  method moves the snake head at 20 pixels which is greater than 10 pixels\b\par
+{\pntext\f2\'B7\tab}\b0 Therefore, the 2nd segment won't be detected as a collision so long as the distance of pixels is by 10:\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1 if snake.head.distance(segement) < 10:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 If you were to set this elif block to check if the segment was less than 30 pixels, the game would end immediately because the 2nd segment is within less than 30 pixels away from teh 1st snake segment\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 I've also created a \b tail_collision() \b0 method in the snake class as I thought this for loop cover's the snake's behavior\b\par
+
+\pard\sa200\sl276\slmult1\ul\b0\fs28 197. How to Slice Lists & Tuples in Python\ulnone\b\fs24\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Replit - Section21_Lecture197_Slicing\par
+{\pntext\f2\'B7\tab}Section21_Lecture191_ClassInhertiance - main.py & snake.py\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 The professor refactored the code to detect if the snake's head collides with the tail in the main.py file\b\par
+{\pntext\f2\'B7\tab}\b0 I've added the code that we wrote in main.py in the snake.py file as well under the tail_collision() method because I thought this behavior would fit the snake class\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 Here, we review Slicing and how to slice iterable objects like lists and tuples to retrieve only a portion of these objects contain\b\par
+{\pntext\f2\'B7\tab}\b0 We'll use this to refactor the for loop that monitors if the snake head collides with the body\b\par
+{\pntext\f2\'B7\tab}\b0 Remember that slicing involves a start:stop:step basis -> list_name[start:stop:step]\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 The start is the index of the list/tuple that you want to begin at\b\par
+{\pntext\f2\'B7\tab}\b0 The stop is the index of the list/tuple that you want to end at \b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0 Keep in mind that this portion is exclusive which means that whichever index you end at will not be included in the slice\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 The step is the pattern of which the slice takes\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0 You can tell a slice to skip every 2nd, 3rd or 4th index in a list/tuple\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 We use this information to refactor our code in the main.py file\b\par
+{\pntext\f2\'B7\tab}\b0 for segment in snake.snake_segments[1:]:\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 if snake.head.distance(segment) < 10:\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0 game_is_on = False\b\par
+{\pntext\f2\'B7\tab}\b0 scoreboard.game_over()\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 snake_segments[1:] - starts at the second element in the list and continues to the end of the list\b\par
+
+\pard\sa200\sl276\slmult1\ul\b0\fs28 198. Stay Motivated by Remembering the Reason You Signed Up\ulnone\b\fs24\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 Remember all of the reasons for why you must complete this course\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0 1) I want to prove to myself that people like me (someone who doesn't know computers very well) can be proficient at programming\b\par
+{\pntext\f2\'B7\tab}\b0 2) To help others with computer programming projects\b\par
+{\pntext\f2\'B7\tab}\b0 3) To obtain a job in programming\b\par
+
+\pard\sa200\sl276\slmult1\par
+}
+ 

@@ -1,0 +1,31 @@
+# 🚨 Don't change the code below 👇
+row1 = ["⬜️","️⬜️","️⬜️"]
+row2 = ["⬜️","⬜️","️⬜️"]
+row3 = ["⬜️","⬜️","⬜️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure? ")
+# 🚨 Don't change the code above 👆
+
+# Write your code below this row 👇
+
+# 1) Split the user's input into 2 separate numbers by adding the input in to a list - https://stackoverflow.com/questions/4978787/how-do-i-split-a-string-into-a-list-of-characters
+coordinates = list(position)
+
+# 1.1) Converting column and row to integers to avoid the TypeError: list indices must be integers or slices, not str error
+# 1.2) Remember to subtract 1 from column and row as lists are 0 based (User input -> 11 = map[0][0])
+column = int(coordinates[0]) - 1
+row = int(coordinates[1]) - 1
+
+# 2) Update the map list by replacing the specified element from the lists with 'X'
+# 2.1) Remember that the map list is printed like this [[0, 1, 2], [0, 1, 2], [0, 1, 2]] - Visualizing the list helps to know where you need to use the 'row' and 'column' variables
+map[row][column] = 'X'
+
+# Refactoring:
+
+# map[(int(coordinates[1]) - 1)][int(coordinates[0]) - 1] = 'X'
+
+#Write your code above this row 👆
+
+# 🚨 Don't change the code below 👇
+print(f"{row1}\n{row2}\n{row3}")

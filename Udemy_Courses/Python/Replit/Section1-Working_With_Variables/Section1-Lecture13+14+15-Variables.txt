@@ -1,0 +1,72 @@
+# Lecture 13: Python Variables
+
+# Variables can be declared, initialized, and instantiated
+
+# 1) Declared (Simply created nothing else)
+# I gave this variable a value of "" as the IDE would throw an error otherwise
+name = ""
+print(name)
+
+# 2) Initialize (Giving a value to the declared variable)
+name = "BuffChickenNug"
+print(name + "\n")
+
+# 3) Instantiated (Once the program runs, the variable is created during the execution process of the program)
+name = "I am being instantiated"
+print(name + "\n")
+
+# Dynamically receiving a name from the user:
+name = input("Heyo homie, could you please tell me your name? ")
+print(name + "\n")
+
+# If you want to find the length of a name:
+name = input("Hi welcome to Chili's, whom am I helping today? ")
+length = len(name)
+# Parsed variable length as a string as the program threw a TypeError: unsupported operand type(s) for +: 'int' and 'str' - You cannot concatenate an integer to a string
+# print(str(length) + "\n")
+print(length, "\n")
+
+# Refactoring the last block of code:
+print(len(input("Where's the leak ma'am? \n")))
+
+#####################################################################################
+
+# Lecture 14: Variable Challenge (Swapping Variable Input):
+
+a = input("a: ")
+b = input("b: ")
+
+# Swapping with 3 variables:
+temp = a
+a = b
+b = temp
+
+# Entering something like
+# a = b
+# b = a
+# Would not work as "a" would be overwritten to equal "b"
+# So b = a would be same as b = b
+
+print(a)
+print(b)
+
+# Doing the same challenge but with only 2 variables:
+# Here is a good YouTube video explaining this strategy: https://www.youtube.com/watch?v=NyeQXuonDek
+
+a = int(input("Enter your first variable: "))
+b = int(input("Enter your second variable: "))
+
+# Swapping with 2 variables:
+a = a + b  # 20 + 10 = 30
+b = a - b  # 30 - 10 = 20
+a = abs(a - b)  # 30 - 20 = 10
+
+print("a equals: ", a)
+print("b equals: ", b)
+
+#####################################################################################
+
+# Lecture 15: Variable Naming
+
+# Different types of naming conventions: https://www.freecodecamp.org/news/programming-naming-conventions-explained/
+# There are different naming conventions for programming (PascalCasing, camelCasing, kebab-casing, snake_casing))

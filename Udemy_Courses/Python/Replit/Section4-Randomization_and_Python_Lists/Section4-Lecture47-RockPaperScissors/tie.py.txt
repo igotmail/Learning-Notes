@@ -1,0 +1,103 @@
+def tie():
+  # 1) Import the random module as we will use the randint() function
+  import random
+  
+  # 2) Create a list of strings that holds the options for "rock", "paper", and "scissors"
+  gameChoice = ["rock", "paper", "scissors"]
+  
+  # 3) Capture user input
+  playerInput = input("Both players made the same choice! What will you choose this time?: Rock, Paper, or Scissors? ").lower()
+  # Capitalizing the 1st letter of the player's choice and then adding the rest of the characters to the capitalized letter
+  print("Player chose: " + playerInput[0].upper() + playerInput[1:len(playerInput)])
+  
+  # 3.1) Print Ascii art of the player's choice
+  if playerInput == "rock":
+    print('''
+      _______
+  ---'   ____)
+        (_____)
+        (_____)
+        (____)
+  ---.__(___)
+  ''')
+  elif playerInput == "paper":
+    print('''
+      _______
+  ---'   ____)____
+            ______)
+            _______)
+           _______)
+  ---.__________)
+  ''')
+  else:
+    print('''
+      _______
+  ---'   ____)____
+            ______)
+         __________)
+        (____)
+  ---.__(___)
+  ''')
+  
+  # 4) Capture the oppenents (computer's) input
+  compInput = gameChoice[random.randint(0,2)]
+  # Upper casing the 1st letter of the opponent's choice and then adding the rest of the characters to the upper cased letter
+  print("Opponent chose: " + compInput[0].upper() + compInput[1:len(compInput)])
+  
+  # 4.1) Print Ascii art of the opponent's choice
+  if compInput == "rock":
+    print('''
+      _______
+  ---'   ____)
+        (_____)
+        (_____)
+        (____)
+  ---.__(___)
+  ''')
+  elif compInput == "paper":
+    print('''
+      _______
+  ---'   ____)____
+            ______)
+            _______)
+           _______)
+  ---.__________)
+  ''')
+  else:
+    print('''
+      _______
+  ---'   ____)____
+            ______)
+         __________)
+        (____)
+  ---.__(___)
+  ''')
+  
+  # 5) Compare the player's input and the computer's input
+  
+  # 5.1) Player chose Rock
+  if playerInput == "rock" and compInput == "rock":
+    print("Both players chose rock - TIE \n") # Added a newline character in case a tie occurs - the next line will have spacing between it
+    tie() # Calling tie() again for recursion in case another tie occurs
+  elif playerInput == "rock" and compInput == "paper":
+    print(f"Player chose {playerInput}. Opponent chose {compInput}. Opponent WINS")
+  elif playerInput == "rock" and compInput == "scissors":
+    print(f"Player chose {playerInput}. Opponent chose {compInput}. Player WINS")
+    
+  # 5.2) Player chose Paper
+  if playerInput == "paper" and compInput == "paper":
+    print("Both players chose paper - TIE \n") # Added a newline character in case a tie occurs - the next line will have spacing between it
+    tie() # Calling tie() again for recursion in case another tie occurs
+  elif playerInput == "paper" and compInput == "scissors":
+    print(f"Player chose {playerInput}. Opponent chose {compInput}. Opponent WINS")
+  elif playerInput == "paper" and compInput == "rock":
+    print(f"Player chose {playerInput}. Opponent chose {compInput}. Player WINS")
+  
+  # 5.3) Player chose Scissors
+  if playerInput == "scissors" and compInput == "scissors":
+    print("Both players chose scissors - TIE \n") # Added a newline character in case a tie occurs - the next line will have spacing between it
+    tie() # Calling tie() again for recursion in case another tie occurs
+  elif playerInput == "scissors" and compInput == "rock":
+    print(f"Player chose {playerInput}. Opponent chose {compInput}. Opponent WINS")
+  elif playerInput == "scissors" and compInput == "paper":
+    print(f"Player chose {playerInput}. Opponent chose {compInput}. Player WINS")

@@ -1,0 +1,16 @@
+# Problem: Year is a string that is being used for numerical calculations 
+# year = input("Which year do you want to check?")
+
+# Solution: Parse/Cast/Covert year to an integer (Be sure to check if the logic of the program is correct too.)
+year = int(input("Which year do you want to check? "))
+
+if year % 4 == 0:
+  if year % 100 == 0:
+    if year % 400 == 0:
+      print("Leap year.")
+    else:
+      print("Not leap year.")
+  else:
+    print("Leap year.")
+else:
+  print("Not leap year.")

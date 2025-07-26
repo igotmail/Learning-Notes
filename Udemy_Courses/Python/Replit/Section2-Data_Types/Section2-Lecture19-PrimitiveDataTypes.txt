@@ -1,0 +1,32 @@
+# Data Types:
+
+# Strings:
+"Hello"
+stringHello = "Hello"
+# Subscripting a string by using the string's index values
+print(stringHello[0])
+# Keep in mind that Python's indexes are 0 based - the index will always start with 0
+# print(stringHello[len(stringHello) - 1]) -> prints out o
+
+# Integer (Whole Numbers):
+50
+numInt = 50
+# Larger whole numbers can be declared with underscores in the commas space - These are used for easier readability for humans. The computer will ignore the underscores
+123_456_789
+print(123_456_789)  # Prints 123456789
+
+# Floats (Fractional Numbers - Numbers with decimal places)
+3.14159
+numFloat = 3.14159
+# We can think of the decimal point that can float between the number's numerical spaces:
+314.159
+3141.59
+31415.9
+
+# Boolean (True/False):
+# These variables only have those 2 values - True or False
+True
+False
+# You may see boolean variables start with the name "is":
+isOn = True
+isOff = False

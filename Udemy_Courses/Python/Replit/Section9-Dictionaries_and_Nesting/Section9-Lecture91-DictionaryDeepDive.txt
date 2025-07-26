@@ -1,0 +1,66 @@
+# Lecture 91: Dictionary Deep Dive
+
+# Official Documentation: (5.5 Dictionaries): https://docs.python.org/3/tutorial/datastructures.html
+# Keys can be any immutable data type (Strings, Numbers)
+
+# Dictionaries can be thought of as a table -> Key:Value
+
+# For example: code = {"Bug":"An error in a program that prevents the program from running as expected"}
+# Key = "Bug"
+# Value = "An error in a program that prevents the program from running as expected."
+
+# Initializing a Dictionary
+programming_dictionary = {
+  "Bug": "An error in a program that prevents the program from running as expected.",
+  "Function": "A piece of code that you can easily call repeatedly.",
+  "Loop": "The action of doing something repeatedly.",
+}
+
+# Calling information from a Dictionary - Printing the value of "Bug"
+# Remember to type the key correctly by its correct data type. In this case Bug is a string
+print("Calling information from a dictionary - Key = 'Bug':", programming_dictionary["Bug"] + "\n")
+
+print("============================================================ \n")
+
+# Adding a Key:Value pair in a Dictionary:
+programming_dictionary[123] = "The first, second, and third numbers of the numerical system."
+print("Adding the 123 key into the Dictionary:", programming_dictionary, "\n")
+
+print("============================================================ \n")
+
+# Edit an item in a Dictionary - Calling an existing key and assigning it a new value
+programming_dictionary["Bug"] = "A moth in your computer."
+print("Editing the 'Bug' Key in the Dictionary", programming_dictionary, "\n")
+
+print("============================================================ \n")
+
+# Deleting a Key from a Dictionary: https://www.freecodecamp.org/news/python-remove-key-from-dictionary/
+del programming_dictionary[123]
+print("Removing the 123 Key:", programming_dictionary, "\n")
+
+print("============================================================ \n")
+
+# Looping through a Dictionary:
+# This will print each key of the dictionary:
+print("Printing all Keys from the Dictioniary: ")
+for key in programming_dictionary:
+  print(key)
+print("")
+
+print("============================================================ \n")
+
+# To tap into a key's value, here's how you do it:
+# I used an f-string as key 123 is an integer. Python will throw an error when trying to print an integer with strings
+print("Printing all Values from the Dictionary: ")
+for key in programming_dictionary:
+  print(f"{key} - {programming_dictionary[key]}")
+print("")
+
+print("============================================================ \n")
+
+# Creating/declaring an empty Dictionary:
+empty_dictionary = {}
+
+# Clearing an existing Dictionary: (Useful for restarting programs or clearing a user's progress)
+programming_dictionary = {}
+print("Clearing all items from the Dictionary:", programming_dictionary)

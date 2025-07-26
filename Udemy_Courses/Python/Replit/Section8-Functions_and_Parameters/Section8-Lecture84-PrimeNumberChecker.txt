@@ -1,0 +1,37 @@
+#Write your code below this line 👇
+
+# 1) Declare the prime_checker function with a parameter of number
+def prime_checker(number):
+
+# 2) Hardcode a catch for the number 2. The reason why I did this is that for loop with a range of range(2, 2) will be skipped by the computer and no code in the for loop will be executed
+  if number == 2:
+    print("It's a prime number")
+
+# 3) Declare a range using "number" as the end point. Remember that range() does not include the number that it ends on (start, stop, step). The stop number is excluded from the range. range(2, 50) --> 2, 49
+  for i in range(2, number):
+    # 4) Check if number is evenly divisible by any of the numbers within the range. Stop if an example of an evenly divisible example occurs. 
+    if number % i == 0:
+      print("It's not a prime number.")
+      break
+    # 4.1) If "i" has reached the end of the range and no even divisions have been made, print out that the number is prime. Since the stop number is not included in a range, if i == number - 1, we know that the for loop looped all the way through to the last number in the range without finding an even division. range(2, 50) --> 2, 49. If i == 49, no even divisions were made; thus the number is prime
+    elif i == number - 1:
+        print("It's a prime number.")
+
+#Write your code above this line 👆
+    
+#Do NOT change any of the code below👇
+n = int(input("Check this number: "))
+prime_checker(number=n)
+
+# ============================================================================= #
+
+# Professor's solution:
+# def prime_checker(number):
+#   is_prime = True
+#   for i in range(2, number):
+#     if number % i == 0:
+#       is_prime == False
+#   if is_prime:
+#     print("It's a prime number.")
+#   else:
+#     print("It's not a prime number")

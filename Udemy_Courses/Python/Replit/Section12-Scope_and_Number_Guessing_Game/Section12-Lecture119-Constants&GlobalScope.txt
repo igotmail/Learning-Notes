@@ -1,0 +1,13 @@
+# Lecture 119: Python Constants and Global Scope
+
+# Global Constants - variables that you define at the global scope and plan on never changing their values
+
+# Use all upper case letters to declare/initialize a global constant variable. This is the naming convention for global constants
+PI = 3.14159
+URL = "https://www.google.com"
+LAST_NAME = "Jeffery"
+GRAVITY_ACCELERATION = 9.8
+
+def calc():
+  PI
+  

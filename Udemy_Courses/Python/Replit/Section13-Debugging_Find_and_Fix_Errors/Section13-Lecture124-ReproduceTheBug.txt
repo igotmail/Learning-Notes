@@ -1,0 +1,19 @@
+# Lecture 124 - Reproduce the Bug
+
+# Steps to fix/clear/remove bugs:
+# 2) Reproduce the Bug
+# Reproducing the defect can help you because you can demonstrate that it is predictable, which makes it easier to understand why it is occurring.
+
+# Example - Reproduce the Bug:
+from random import randint
+dice_imgs = ["1", "2", "3" ,"4", "5", "6"]
+# Before:
+# dice_imgs = randint(1, 6) 
+# After: 
+dice_num = randint(0, len(dice_imgs) - 1) # <- if 6, then out of bounds error will appear
+print(dice_num)
+print(dice_imgs[dice_num])
+
+# What is this block of code doing? - It is randomly assigning a number 1 - 6 to the dice_num variable. Based on what the variable is, we use that variable to print out an element from the dice_imgs list
+
+# What are your assumptions about this block of code? - Initially, it doesn't look like anything wrong will happen. However, upon closer inspection, the randint function will choose a number between 1 - 6. We need to remember that lists are 0 based. Meaning, that the list with 6 elements will have indexes that begin with 0 - 5. If the random variable is assigned 6, then we will see an out of bounds error. Additionally, we will never see "1" being printed since index 0 is never called.

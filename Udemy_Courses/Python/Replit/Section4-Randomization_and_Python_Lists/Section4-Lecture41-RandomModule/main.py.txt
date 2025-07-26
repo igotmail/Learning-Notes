@@ -1,0 +1,28 @@
+# RANDOM:
+
+# Importing a Module/Library allows us to utilize the prebuilt functions located in this Module/Library
+import random
+
+# Generating a random integer between 1 and 10
+print("Random Integer Number: ", random.randint(1, 10))
+
+# Generating a random floating point number between 0.0 and 1.0
+print("Random Floating Number: ", random.random())
+
+# Expanding the random floating point number range 0.0 - 4.9
+# Multiplying the result by a number will give us a larger range than 0.0 - 1.0 excluding the number that is used for multiplication
+print("Float between 0.0 - 4.9: ", random.random() * 5)
+
+######################################################################
+
+# MODULES:
+# Code can be split into different bits of functionality
+# Modules help achieve that goal by allowing you to divide a larger script into smaller, more manageable code pieces.
+# Modules encourage collaboration as you can split a larger program into smaller modules
+
+# Here is an example of a file/script being imported into this program
+# At the top left, you can see 'myModule.py' at the same level of main.py
+# main.py is what will be executed when we run the program. So, we can bring in other files/scripts into this main.py file to run
+import myModule
+
+print(myModule.pi)

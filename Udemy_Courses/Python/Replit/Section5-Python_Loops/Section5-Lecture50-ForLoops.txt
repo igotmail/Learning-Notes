@@ -1,0 +1,17 @@
+# Lecture 50: Using the For Loop with Python Lists
+
+# You can think of writing a for loop like this:
+# for each [item] in [list_of_items]:
+#  Do something for each item
+
+# Basic example: "fruit" is a local variable that is updated with each loop/iteration of the for loop
+fruits = ["apple", "peach", "pear"]
+for fruit in fruits:
+  print(fruit)
+  # Prints out the index of each element, adds 1 to the index, and then prints out the element
+  print(f"{fruits.index(fruit) + 1}) {fruit}")
+
+# We can execute the same line of code multiple times - this is a huge benefit with loops
+
+# It is good practice to name the local variable of the for loop the singular version of whatever you are iterating through
+# For example, the singular form of fruits is fruit

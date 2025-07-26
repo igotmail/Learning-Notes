@@ -1,0 +1,69 @@
+# Lecture 106 - Calculator Finishing Touches
+
+# Import the Calculator Ascii Art: (fork the professor's replit to get this logo)
+# This imports everything from the art.py file
+# from art -> print(art.logo)
+# This specifies what you want to import from an external .py file
+from art import logo
+
+# Add Function:
+def add(n1, n2):
+  return n1 + n2
+
+# Subtract Function:
+def substract(n1, n2):
+  return n1 - n2
+
+# Multiplication Function:
+def multiply(n1, n2):
+  return n1 * n2
+
+# Division Function:
+def divide(n1, n2):
+  return n1 / n2
+
+# Exponent Function:
+def exponent(n1, n2):
+  return n1 ** n2
+
+# Square Root Function:
+def sqaure_root(n1, n2):
+  return n1 // n2
+
+operations = {
+  "+": add,
+  "-": substract,
+  "*": multiply,
+  "/": divide,
+  "**": exponent,
+  "//": sqaure_root,
+}
+
+# Instantiating calculator() for recursion. It will call itself when a user decides if they would like to continue or start a new calculation with the program. More information can be found in the "RecursionExamples" replit
+def calculator():
+  print(logo)
+  
+  num1 = float(input("What is the first number?: "))
+  
+  for operator in operations:
+    print(operator)
+  
+  # Creating a companion variable for the while loop. Break the loop if this variable is set to true
+  is_finished = False
+  
+  # While loop will continue to ask the user for numbers until the user decides that they're finished
+  while is_finished is not True:
+    operator_symbol = input("Pick an operation: ")
+    num2 = float(input("What is the next number?: "))
+    calculation_function = operations[operator_symbol]
+    answer = calculation_function(num1, num2)
+    print(f"{num1} {operator_symbol} {num2} = {answer}")
+  
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ").lower() == 'y':
+      num1 = answer
+    else:
+      # We still use the boolean variable here to possibly stop a memory leak. The while loop could still be active if we don't tell it to stop running
+      is_finished = True
+      # Calling the calculator() function will allow a user to start from the beginning again
+      calculator()
+calculator()

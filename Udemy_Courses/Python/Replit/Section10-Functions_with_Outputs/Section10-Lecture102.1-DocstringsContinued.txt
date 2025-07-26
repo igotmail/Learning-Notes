@@ -1,0 +1,44 @@
+# Adding additional examples of Docstrings here
+
+# I've separated these examples from the lecture's examples so that the 102 Lecture is not packed with numerous amounts of examples in one Replit
+
+# Examples from this website: https://www.programiz.com/python-programming/docstrings
+
+# Example 1: Single Line Docstring
+# The ''' or """ comment is the docstring. Here's an example of one in a function:
+def square(num):
+  '''Takes in the parameter num and returns the square of num'''
+  return num ** 2
+print("The result of square(): " + str(square(2)) + "\n")
+# You can also print out the docstring itself using the __doc__ attribute
+print("Example 1: Single Line Docstring: \n")
+print(square.__doc__)
+print("")
+print("======================================================= \n")
+
+# Example 2: Existing Docstrings in other Functions
+# There are docstrings for existing built-in functions like print()
+print("Example 2: Existing Doctrings - print(): \n")
+print(print.__doc__)
+print("")
+print("======================================================= \n")
+
+# Example 2: Multilined Doctrings
+def pathagorean(a, b):
+  '''
+  Returns the sum of two integers to the second power.
+
+    Parameters:
+      a (int): An integer (the length of a triangle - not the hypotenuse)
+      b (int): Another integer (the length of a triangle - not the hypotenuse)
+
+    Returns:
+        hypotenuse (int): The sum of a and b to the power of 2
+  '''
+  hypotenuse = (a**2 + b**2)
+  return hypotenuse
+print("The result of pathagorean(): " + str(pathagorean(2, 4)) + "\n")
+print("Example 3: Multilined Docstrings \n")
+print(pathagorean.__doc__)
+print("")
+print("======================================================= \n")

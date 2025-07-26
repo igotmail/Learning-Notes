@@ -1,0 +1,42 @@
+# This program is my rendition of how to keep track of your monthly financial budget
+
+# 1) Declare 2 lists - One will keep track of the bill you're paying, the other will keep track of the actual amount you're paying for
+monthlyBill = []
+monthlyBillCharge = []
+
+# 2) Create a while loop that contains 3 input dialog options. What the user will enter will be appended to each respective list
+while True:
+  monthlyBill.append(
+    input("What is the name of the bill you would like to enter?: "))
+  monthlyBillCharge.append(
+    input("What is the amount you're paying per month for that bill?: "))
+  # Will need a try/catch here to prohibit the user from entering numbers or other irrelevant information
+  # My knowledge on the try/except error handling is limited. For now, I can detect if the user entered a number or a string using .isdigit(), .isalpha(), or .isalnum(): https://stackoverflow.com/questions/17453626/python-if-user-input-contains-string
+  addMore = input(
+    "Is there anything else you'd like to enter for your budget? Enter 'Yes' or 'No': ")
+  if addMore.lower() == "no":
+      break 
+  else:
+    continue
+
+print("=============================================================")
+
+# 3) Use a for loop to iterate through each list and print out the corresponding charge for each bill
+# How to print elements of a list side by side: https://www.oreilly.com/library/view/python-cookbook/0596001673/ch01s15.html
+# Explanation to the strict = True parameter: https://docs.python.org/3/library/functions.html#zip
+for bill, charge in zip(monthlyBill, monthlyBillCharge):
+  print(bill + ": $" + charge)
+
+print("=============================================================")
+
+# 4) Find the sum of all monthly bill charges
+totalBillCharges = 0
+for charge in monthlyBillCharge:
+  totalBillCharges += float(charge)
+print("The total of your bills is: ${:.2f}".format(totalBillCharges))
+
+# ?) User enters their total assets
+
+# ?) Subtract monthly bill charges from total assets
+
+# ?) You can format everything into a table - there should be a way to format print statements into a table like structure. We could also find a way to export these numbers to an Excel file: https://docs.python.org/3/library/csv.html

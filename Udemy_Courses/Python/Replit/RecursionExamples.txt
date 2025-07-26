@@ -1,0 +1,32 @@
+# Recursive Function Example: https://python-course.eu/advanced-python/recursive-functions.php
+
+# Example 1: 
+def factorial(n):
+  if n == 0:
+    return 1
+  else:
+    return n * factorial(n-1)
+
+# Example 2:
+def factorial2(n):
+  print("factorial2 has been called with n == " + str(n))
+  if n == 1:
+    return 1
+  else:
+    result = n * factorial2(n - 1)
+    print("Intermediate result for", n, "* factorial2(", n - 1, "): ", result)
+    return result
+
+number = int(input("Enter a number: "))
+
+print(factorial(number), "\n")
+print(factorial2(number), "\n")
+
+# ========================================================== #
+
+# Tips:
+
+# 1) Be aware that recursive functions could throw themselves in endless loops: (Explained in Section10-Lecture105-While Loops+Flags+Recursion)
+def infinite_print_loop():
+  print("I will take over your console! >:)")
+  infinite_print_loop()

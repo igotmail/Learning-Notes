@@ -1,0 +1,68 @@
+# Lecture 81: Functions with Input
+
+# Remember that Functions are useful because they allow programmers to develop a set of instructions that can be executed repeatedly. You do not need to continuously write the same code over and over again. Functions eliminate redundancy.
+
+# Refer to Section6-Lecture59+60-Functions to refresh on the basics of functions: https://replit.com/@igotmail/Section6-Lecture5960-Functions#main.py
+
+# Greet Function Example:
+def greet():
+  print("Hello!")
+  print("How are you?")
+  print("Skibbidybopmmbada")
+
+# Calling greet()
+greet()
+
+print("======================================================= ")
+
+print("Function that allows for input: \n")
+
+# When a parameter is introduced to a function, Python first instatiates the function, finds where it's been called, finds the function, and then pass whatever information (argument) into the function's parameter 
+
+# Greet2 with parameters - name, and time_of_day
+def greet2(name, time_of_day):
+  print("Hello, " + name + "!")
+  print(f"How are you this {time_of_day}?")
+  print("Skibbidybopmmbada")
+
+# Calling greet2() with arguments - "Bobby" and "afternoon"
+greet2("Bobby", "afternoon")
+
+print("======================================================= ")
+
+################################################################
+
+# Lecture 82: Positional vs. Keyword Arguments
+
+# - Key takeaways: 
+# Positional Arguments
+# Keyword Arguments
+
+print("Additional function 'greet3' that allows for 3 parameters \n")
+
+# Greet3 with parameters - name, location, hobby
+def greet3(name, location, hobby):
+  print(f"Hello, {name}")
+  print(f"You are in {location}")
+  print(f"You like to {hobby}")
+
+# Calling greet3() with arguments - "Jeff", "Jeffery Land", and "Jeff"
+greet3("Jeff", "Jeffery Land", "Joff")
+print("----------------")
+
+# Keep in mind that the 1st argument will be assigned to the 1st paramter
+# name = "Jeff", location = "Jeffery Land", hobby = "Joff"
+
+# You can switch the position of these arguments and receive a different response. These are called positional arguments:
+greet3("Joff", "Jeff", "Jeffery Land")
+print("----------------")
+
+# When we call the function, we haven't specified anywhere which particular parameter we want to associate these arguments to
+# So Python looks at the position of these arguments and assigns them to the parameter based on their position when we call the function
+
+# You can specify which argument goes to what parameter by using Keyword Arguments:
+greet3(name = "Bobby", location = "Bobby Land", hobby = "Bob")
+print("----------------")
+
+# You can also switch the positioning of the Keywords Arguments:
+greet3(location = "Disney Worl", hobby = "Deep Sea Fish", name = "Vancouver")

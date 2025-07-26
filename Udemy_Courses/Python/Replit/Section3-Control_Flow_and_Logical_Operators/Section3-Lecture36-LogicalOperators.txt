@@ -1,0 +1,61 @@
+# Lecture 36: Logical Operators
+
+# 3 Logical Operators: and, or, not
+
+# The "and" operator requires both conditions to be true to execute the proceeding block of code
+if True and True:
+  print("AND: This code will be executed. \n")
+
+# The following code will NOT be executed if the "and" operator evaluates just one condition to be false
+
+if True and False:
+  print("AND: This code will not be executed.")
+
+# ------------------------------------------------------------------- #
+
+# The "or" operator requires only one condition to be true to execute the proceeding block of code
+
+if True or False:
+  print("OR: This code will be executed. \n")
+
+# ------------------------------------------------------------------- #
+
+# The "not" operator will flip the original result of a condition
+
+# For example, 1 is not greater than 2 but the not operator changes this condition to True
+if not 1 > 2:
+  print("NOT: This code will be executed. \n")
+
+# ------------------------------------------------------------------- #
+
+print("Lecture 36 - Logical Operators")
+
+anotherCust = int(input("Please enter your height: "))
+
+if anotherCust > 120:
+  print("You can ride the rollercoaster!")
+  anotherAge = int(input("Please enter your age: "))
+  if anotherAge < 12:
+    print("Child tickets are $5.00.")
+    ticketPrice = 5
+  elif anotherAge <= 18:
+    print("Youth tickets are $7.00.")
+    ticketPrice = 7
+
+  # Using logical operators to improve the rollercoaster ticket price program
+  elif anotherAge >= 45 and anotherAge <= 55:
+    print("You're going through a Midlife Crisis. Your ticket is $0.00")
+    ticketPrice = 0
+
+  else:
+    print("Adult tickets are $12.00.")
+    ticketPrice = 12
+  takePhoto = input(
+    "Would you like to take a photo on the rollercoaster? Enter 'Y' for Yes or 'N' for No: "
+  )
+  if takePhoto.upper() == "Y":
+    print(f"Your total price is: ${(ticketPrice + 3):.2f}.")
+  elif takePhoto.upper() == "N":
+    print(f"Your total price is: ${ticketPrice:.2f}.")
+else:
+  print("You must be taller to ride the rollercoaster.")

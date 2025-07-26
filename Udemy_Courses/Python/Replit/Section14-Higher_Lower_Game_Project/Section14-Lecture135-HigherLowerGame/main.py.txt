@@ -1,0 +1,146 @@
+# Documentation that helped me:
+# 1) https://docs.python.org/3/tutorial/datastructures.html
+
+import art
+# 1) Import game_data.py
+from game_data import data
+import random
+from replit import clear
+
+# 2) Print Higher Lower ASCII Art
+print(art.logo)
+
+# 3) Create a function that randomly chooses a dictionary object from the data list
+def get_data():
+  """Retrieves a random element from the data list"""
+  return data[random.randint(0, len(data) - 1)]
+
+# 5) Based on the user's decision, compare both people together from the data list
+def compare_data(choice, score, data_A, data_B):
+  """Compares both choices together and returns an updated score count, a string, or a boolean depending on the comparison"""
+  if choice == 'a':
+    if data_A['follower_count'] > data_B['follower_count']:
+      # 5.1) Increment the player's score and return it so that the player_score variable can be updated
+      score += 1
+      return score
+    # 5.2) If the follower count for choice_A and choice_B are the same, return a string and the if block in step 4.5.3 will handle it by using the type() function
+    elif data_A['follower_count'] == data_B['follower_count']:
+      # Returning a string will trigger the elif statement in step 4.5.3
+      return "Tie"
+    else:
+      # 5.3) Update the is_finished variable so that it can be used to stop the program if the user made an incorrect guess
+      is_finished = True
+      return is_finished
+  elif choice == 'b':
+    if data_B['follower_count'] > data_A['follower_count']:
+      # 5.1) Increment the player's score and return it so that the player_score variable can be updated
+      score += 1
+      return score
+    # 5.2) If the follower count for choice_A and choice_B are the same, return a string and the if block in step 4.5.3 will handle it by using the type() function
+    elif data_A['follower_count'] == data_B['follower_count']:
+      # Returning a string will trigger the elif statement in step 4.5.3
+      return "Tie"
+    else:
+      # 5.3) Update the is_finished variable so that it can be used to stop the program if need be
+      is_finished = True
+      return is_finished
+        
+# 4) Wrap the game in a function. The game should continue until the player makes an incorrect decision
+def play_game():
+  """The basic parts of the game are instantiated here. This function calls upon other functions get_data() and compare_data() to create a game that continues to loop until the player makes an incorrect guess"""
+  
+  # 4.1) Companion variables to count 
+  player_score = 0 
+  
+  # 4.2) Randomly select 2 objects from the data list
+  choice_A = get_data()
+  choice_B = get_data()
+  
+  # 4.3) If random_B is the same as random_A, choose a different person for random_B
+  while choice_B == choice_A:
+    choice_B = get_data()
+
+  # 4.4) Create a boolean variable to control when the game should stop
+  is_finished = False
+
+  # 4.5) Continue to loop through the game until the player makes a wrong choice 
+  while is_finished is not True:
+    print(f"Compare A: {choice_A['name']}, a(n) {choice_A['description']}, from {choice_A['country']}")
+    # 4.5.1) Print the VS ASCII Art
+    print(art.vs)
+    print(f"Against B: {choice_B['name']}, a(n) {choice_B['description']}, from {choice_B['country']}")
+    
+    # 4.5.2) Ask for the user's to choose which person has more followers
+    player_choice = input("Who has more followers? Type 'A' or 'B': ").lower()
+
+    # 4.5.3) Depending on whether the return type is int or bool, increment the score and continue or update the boolean variable and stop the game
+    if type(compare_data(player_choice, player_score, choice_A, choice_B)) == int:
+      # 4.5.3.1) Update the player's score
+      player_score = compare_data(player_choice, player_score, choice_A, choice_B)
+      # 4.5.3.2) Clear the console so the game does not repeatedly print text into the console
+      clear()
+      # 4.5.3.3) Print the Higher Lower ASCII Art to create the illusion that the art was never deleted
+      print(art.logo)
+      # 4.5.3.4) Print the player's score
+      print(f"You're right! Current score: {player_score}")
+    # If the follower count for choice_A and choice_B are the same:
+    elif type(compare_data(player_choice, player_score, choice_A, choice_B)) == str:
+      # 4.5.3.1) Update the player's score
+      player_score += 1
+      # 4.5.3.2) Clear the console so the game does not repeatedly print text into the console
+      clear()
+      # 4.5.3.3) Print the Higher Lower ASCII Art to create the illusion that the art was never deleted
+      print(art.logo)
+      # 4.5.3.4) Print the player's score
+      print(f"It was actually a tie. {choice_A['name']} has the same number of followers as {choice_B['name']}")
+      print(f"We'll give you a point anyway 👍. Current score: {player_score}")
+    else:
+      is_finished = compare_data(player_choice, player_score, choice_A, choice_B)
+      clear()
+      # 4.5.3.3) Print the Higher Lower ASCII Art to create the illusion that the art was never deleted
+      print(art.logo)
+      # 4.5.3.5) Inform the player that they made the wrong decision and print the final score
+      print(f"Sorry, that's wrong. Final score: {player_score}")
+      # 4.5.3.6) Show the player how many followers their choice had versus the other choice
+      if player_choice == 'a':
+        print(f"You chose 'A' - {choice_A['name']}, which has {choice_A['follower_count']} followers")
+        print(f"{choice_B['name']} has {choice_B['follower_count']} followers")
+      elif player_choice == 'b':
+        print(f"You chose 'B' - {choice_B['name']}, which has {choice_B['follower_count']} followers")
+        print(f"{choice_A['name']} has {choice_A['follower_count']} followers")
+      
+    # 6.6) Continue moving down the list if the player correctly chooses the more popular option (The person/entity in Compare B will be moved to Compare A if the player guesses correctly)
+    # Problem - function not printing or returning expected values
+    # Solution - change the > to >= in data.index(choice_B) + 1 > len(data)
+    # 6.6.1) choice_A becomes choice_B creating the illusion that the people are visually moving up on the list in the console
+    choice_A = choice_B
+    # For Testing:
+      # print(f"Index of choice_B + 1: {data.index(choice_B) + 1}")
+      # print(f"Length of data: {len(data)}")
+    # 6.6.2) This If block is checking if we've reached the end of the data list. If so, assign choice_B to the first element of the data list
+    if (data.index(choice_B) + 1) >= len(data):
+      choice_B = data[0]
+    # Else we can use a random element in the data list
+    else:
+      choice_B = get_data()
+      while choice_B == choice_A:
+        choice_B = get_data()
+      # Else we can use the next index in the data list
+      # choice_B = data[data.index(choice_B) + 1]
+    # print(choice_A['name'])
+    # print(choice_B['name'])
+
+play_game()
+
+# Plan:
+# Manually write everything and then decide what needs to be implemented into a method/loop
+# Using what you've learned in the Blackjack project seems to help organize this project
+# To Do:
+# 1) Find a way to repeat the game without it re-printing down the console (Complete - step 3.5.3, we used the clear() function to create the illusion that nothing was deleted)
+# 2) Find a way to print the score under the Higher Lower Ascii art (Complete - step 4.5.3, the score appears below the Ascii art because we cleared everything and then reprinted the Acii art along with the score underneath)
+# 3) Handle an exception where both choice A and B have the same follower count (Complete - step 4.3, we utilized a string to trigger an elif block in step 4.5.3)
+# 4) The if block in 6.6.2 can be removed and be replaced by:
+# choice_B = get_data()
+# while choice_B == choice_A:
+#   choice_B = get_data()
+# I'm just keeping it there because I think it was a really cool solution to move down the data list after each correct player guess

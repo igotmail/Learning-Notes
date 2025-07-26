@@ -1,0 +1,23 @@
+# Lecture 126 - Fixing Errors and Watching for Red Underlines
+
+# Steps to fix/clear/remove bugs:
+# 4) Watch for Red Underlines
+# Your IDE has intellesense to help you identify typo's and other logical errors in your code as you create your program. Keep an eye out for red underlines on your statements to quickly squash these kinds of bugs before they are a problem.
+# Hover your cursor over these red lines to learn more about the issue itself. The IDE should give you some information as to why a line or lines of code is erroneous.
+
+# Before:
+# age = input("How old are you?")
+# if age > 18:
+# print("You can drive at age {age}.")
+
+# After:
+age = int(input("How old are you?"))
+if age > 18:
+  print(f"You can drive at age {age}.")
+
+# 3 errors: 
+# 1) The age variable will be stored as a string and then compared to an integer. We need to parse/cast the age variable as an integer before the program makes this comparison
+# 2) The print statement is not indented in the if block
+# 3) The user is expecting the print statement to print the age variable where "{age}" is written. Instead, the print statement will literally print "{age}" to the console unless we utilize the f-string component
+
+# Don't forget that you can copy and paste the error that you get in from the console into online search engines like Google to find out how to fix the errors you see

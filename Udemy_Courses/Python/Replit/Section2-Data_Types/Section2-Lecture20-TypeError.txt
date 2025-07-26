@@ -1,0 +1,18 @@
+# Using the incorrect data type for a function may return a type error:
+
+# 1) The following print statement will return a type error as len() expects an iterable object (strings, bytes, tuples, lists, ranges | dictionaries, or sets) - https://docs.python.org/3/library/functions.html#len
+
+# print(len(1234)) # -> TypeError: object of type 'int' has no len()
+
+# So, remember to pass data that functions will accept
+print(len("1234"))
+
+# 2) If you would like to know the data type that you're working with, use type(): https://docs.python.org/3/library/functions.html#type
+print(type("1234"))  # -> Expected: Returns string | Actual: Returns <class 'str'>
+
+# 3) You can also change a value's data type through type conversion, casting, or parsing
+simpleNum = "1234"  # - String
+print(type(simpleNum))  # - String
+print(type(int(simpleNum)))  # - Int
+print(type(float(simpleNum)))  # - Float
+print(float(simpleNum))  # - 1234.0 - float() adds the .0 decimal point

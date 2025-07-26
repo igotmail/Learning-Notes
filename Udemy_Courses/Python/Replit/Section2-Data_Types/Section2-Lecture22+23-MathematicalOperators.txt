@@ -1,0 +1,44 @@
+# Here are examples of mathematical Operators
+5 + 1
+10 - 2
+15 * 3
+20 / 4
+print(20 / 4) # This will give us 5.0, a float data type
+2 ** 2 # - Exponents
+4 % 2 # - Modulus (Finds the remainder after division)
+print(4 % 2) # Answer is 0. 4 / 2 = 2 (2 * 2 = 4 | 4 - 4 = 0). There is no remainder
+print(5 % 2) # Answer is 1. 5 / 2 = 2 (2 * 2 = 4 | 5 - 4 = 1). 1 is the remainder
+
+#######################################################################
+
+# Remember PEMDAS (Parenthesis, Exponents, Multiplication, Division, Addition, Subtraction) - Order of operations
+
+# Python considers Multiplication and Division of equal importance
+# Python also considers Addition and Subtraction of equal importance
+
+# () - Parenthesis
+# ** - Exponents
+# *, / - Multiplication and Division
+# +, - - Addition and Subtraction
+
+# Whichever operator is furthest to the LEFT WILL BE EXECUTED FIRST
+print(10 * 5 / 2) # Multiplication goes first -> answer is 25
+print(10 / 2 * 5) # Division goes first -> answer is still 25
+print(10 + 5 - 2) # Addition goes first -> answer is 13
+print(10 - 2 + 5) # Subtraction goes first -> answer is still 13
+print(3 * 3 + 3 / 3 - 3) # Multiplication goes 1st, Division 2nd, Addition 3rd, Subtraction 4th -> answer is 7
+print(3 * 3 / 3 - 3 + 3) # Multiplication goes 1st, Division 2nd, Subtraction 3rd, Addition 4th -> answer is 3
+
+#######################################################################
+
+# Interactive Coding Exercise - BMI Calculator:
+
+height = input("enter your height in m: ")
+weight = input("enter your weight in kg: ")
+# 1) Store the BMI calculation:
+BMI = float(weight) / (float(height) ** 2)
+# 2) print the results of BMI:
+print(int(BMI))
+# Refactoring code to reduce cache usage:
+# print(int(float(weight) / (float(height) ** 2)))
+# print((float(input("Enter your weight in kg: "))) / (float(input("enter your height in m: ")) ** 2))

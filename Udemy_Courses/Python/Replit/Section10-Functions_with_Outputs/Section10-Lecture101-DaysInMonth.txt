@@ -1,0 +1,66 @@
+# 1) First change each if block to a boolean return statement 
+def is_leap(year):
+  if year % 4 == 0:
+    if year % 100 == 0:
+      if year % 400 == 0:
+        # print("Leap year.")
+        return True
+      else:
+        # print("Not leap year.")
+        return False
+    else:
+        # print("Leap year.")
+        return True
+  else:
+    # print("Not leap year.")
+    return False
+# 2) Create parameters for days_in_month() so that it can accept arguments
+def days_in_month(input_year, input_month):
+  month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  
+  # 3) Call the is_leap() function to determine if the year is a leap year
+  if is_leap(input_year) == True:
+      # 3.1) Determine if the input_month value is 2. This indicates that the month the user chose is February and needs to be modified to have an extra day. This is because February has 29 days instead of 28 in a leap year
+      if input_month == 2:
+          return month_days[input_month - 1] + 1
+      else:
+          return month_days[input_month - 1]
+  # 3.2) Return the days of the month by using the input_month value as the index for the month_days list  
+  elif is_leap(input_year) == False:
+      return month_days[input_month - 1]
+  
+#🚨 Do NOT change any of the code below 
+year = int(input("Enter a year: "))
+month = int(input("Enter a month: "))
+days = days_in_month(year, month)
+print(days)
+
+# ================================================================= #
+
+# Professor's Solution:
+
+# def is_leap(year):
+#   if year % 4 == 0:
+#     if year % 100 == 0:
+#       if year % 400 == 0:
+#         return True
+#       else:
+#         return False
+#     else:
+#         return True
+#   else:
+#     return False
+    
+# def days_in_month(year, month):
+#   if month > 12 or month < 1:
+#     return "Invalid month."
+#   month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+#   if is_leap(year) and month == 2:
+#       return 29
+#   return month_days[month - 1]
+  
+# #🚨 Do NOT change any of the code below 
+# year = int(input("Enter a year: "))
+# month = int(input("Enter a month: "))
+# days = days_in_month(year, month)
+# print(days)

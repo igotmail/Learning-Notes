@@ -1,0 +1,51 @@
+# Calculator
+
+# 1) Create 4 functions for addition, subtraction, multiplication, and division
+
+# Add Function:
+def add(n1, n2):
+  return n1 + n2
+
+# Subtract Function:
+def substract(n1, n2):
+  return n1 - n2
+
+# Multiplication Function:
+def multiply(n1, n2):
+  return n1 * n2
+
+# Division Function:
+def divide(n1, n2):
+  return n1 / n2
+
+# 2) Create a dictionary that holds the functions as values and the mathematical operators as keys
+# Notice that we don't include the function's parenthesis "()"
+# We will use a variable to capture a user's input for the mathematical operator, and then use another variable to capture which function we will want to use for our calculations
+operations = {
+  "+": add,
+  "-": substract,
+  "*": multiply,
+  "/": divide,
+}
+
+# 3) Ask for the user's first number
+num1 = int(input("What is the first number?: "))
+
+# 4) Display the types of operators the user could use using a for loop
+for operator in operations:
+  print(operator)
+
+# 5) Ask which operator symbol the user will use
+operator_symbol = input("Which operator would you like to use?: ")
+
+# 6) Ask for the user's second number
+num2 = int(input("What is the second number?: "))
+
+# 7) Use the value for operator_symbol to call the key in the dictionary and store it in a variable - the variable will dynamically store the function based on the user's choice 
+calculation_function = operations[operator_symbol]
+
+# 8) Store the result of the function's calculation
+answer = calculation_function(num1, num2)
+
+# 9) Print out the equation and the result
+print(f"{num1} {operator_symbol} {num2} = {answer}")

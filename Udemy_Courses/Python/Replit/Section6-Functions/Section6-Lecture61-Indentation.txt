@@ -1,0 +1,17 @@
+# Lecture 61: Indentation in Python
+
+# indentation is important in Python as it defines the scope of certain code blocks
+# Indents are 4 spaces to the right for a single line
+# For Python, the preferred indentational key to use to create these 4 spaces is the spacebar key - https://peps.python.org/pep-0008/#tabs-or-spaces
+
+def hello_world():
+  print("Hello World!")
+print("I am not a part of hello_world().")
+
+# Exmaple of multiple indentations
+def multiple_blocks_of_code():
+  if True:
+    print("Yes")
+  elif False:
+    print("No")
+multiple_blocks_of_code()

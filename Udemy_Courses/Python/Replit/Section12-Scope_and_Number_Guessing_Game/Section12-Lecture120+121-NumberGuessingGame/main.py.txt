@@ -1,0 +1,103 @@
+# Lecture 120 - Number Guessing Game
+# from random import randint
+# import art
+
+# # 1) Initialize a variable that holds a random number between 1 - 100
+# num_random = randint(1, 100)
+
+# # 2) Welcome the player to the game
+# print(art.logo)
+# print("Welcome to the Number Guessing Game!")
+# print("I'm thinking of a number between 1 - 100.")
+# print(f"The correct number is {num_random}")
+
+# # 3) Ask the player what difficulty they'd like to play on
+# player_difficulty = input("Choose a difficulty. Type 'easy' (10 guesses) or 'hard' (5 guesses): ") 
+# player_lives = 0
+# if player_difficulty.lower() == "easy":
+#   player_lives = 10
+#   print(f"You have {player_lives} attempts ramining to guess the number.")
+# else:
+#   player_lives = 5
+#   print(f"You have {player_lives} attempts ramining to guess the number.")
+
+# # 4) Ask for the player's guess
+# is_finished = False
+# def compare_guess(lives, game_over):
+#   while game_over == False: # You can also make this condition as lives > 0 and remove the is_Finished and game_over parameter booleans
+#     player_guess = int(input("Make a guess: "))
+#     if player_guess > num_random:
+#       print("Too high. Try again")
+#       lives -= 1
+#       print(f"You have {lives} attempts remaining.")
+#       if lives == 0:
+#         print("You've run out of guesses. You lose.")
+#         print(f"The correct answer was {num_random}")
+#         game_over = True
+#     elif player_guess < num_random:
+#       print("Too low. Try again.")
+#       lives -= 1
+#       print(f"You have {lives} attempts remaining.")
+#       if lives == 0:
+#         print("You've run out of guesses. You lose.")
+#         print(f"The correct answer was {num_random}")
+#         game_over = True
+#     elif player_guess == num_random:
+#       print(f"You got it! The answer was {player_guess}.")
+#       game_over = True
+
+# # 4.1) Use a compare function to repeatedly evaluate the player's guess
+# compare_guess(lives=player_lives, game_over=is_finished)
+
+###############################################################
+
+# Lecture 121: Solution & Walkthrough - Professor's Program
+from random import randint
+import art
+
+EASY_LEVEL_TURNS = 10
+HARD_LEVEL_TURNS = 5
+
+# Function to check user's guess against actual answer
+def check_answer(guess, answer, turns):
+  """Checks the user's guess. Returns the number of turns remaining"""
+  if guess > answer: 
+    print("Too high. Try again")
+    return turns - 1
+  elif guess < answer:
+    print("Too low. Try again.")
+    return turns - 1
+  elif guess == answer:
+    print(f"You got it!. The answer was {answer}.")
+
+# Make function to set difficulty
+def set_difficulty():
+  level = input("Choose a difficulty. Type 'easy' (10 guesses) or 'hard' (5 guesses): ")
+  if level.lower() == 'easy':
+    return EASY_LEVEL_TURNS
+  else:
+    return HARD_LEVEL_TURNS
+    
+def game():
+  # Choosing a random number between 1 and 100
+  print(art.logo)
+  print("Welcome to the Number Guessing Game!")
+  print("I'm thinking of a number between 1 and 100.")
+  answer = randint(1, 100)
+  turns = set_difficulty()
+  print(f"You have {turns} attempts ramining to guess the number.")
+  print(f"The correct number is {answer}")
+  
+  # Repeat the guessing functionality if the user guesses incorrectly
+  guess = 0
+  while guess != answer:
+    # Let the user guess a number
+    guess = int(input("Make a guess: "))
+    # Track the number of turns and reduce by 1 if they get it wrong
+    turns = check_answer(guess, answer, turns)
+    print(f"You have {turns} turns remaining")
+    if turns == 0:
+      print("You've run out of guesses. You lose.")
+      guess = answer
+      # You can also simply write "return." Remember, once a function encounters the return keyword, the function stops executing
+game()

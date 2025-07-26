@@ -1,0 +1,182 @@
+# Lecture 62: While Loops
+
+# While Loops are similar to For Loops.
+
+# A difference between the two is:
+# While Loops: Used for if you don't know how many times you would iterate through a block of code.
+# For Loops: Used for when you do know how many times you'd iterate through a block of code.
+# For Loops excel at iterating through ranges or lists
+
+# You technically can use While Loops and For Loops interchangeably. A For Loop can do what a While Loop can do and vice versa.
+
+# Python Documentation: https://docs.python.org/3/reference/compound_stmts.html#the-while-statement
+
+# Here's a basic refresh of For Loops
+list_of_items = ["basketball", "bowling ball", "hockey puck"]
+
+for item in list_of_items:
+  # Do something for each item
+  print(item)
+
+for num in range(0, 11):
+  print(num)
+
+# Using a While loop to print out the elements in the list_of_items list
+item2 = 0
+while item2 < len(list_of_items):
+  print(list_of_items[item2])
+  item2 += 1
+
+# Using a While loop to print out the elements in the list_of_items list but in reverse
+item = len(list_of_items)
+while item > 0:
+  item -= 1
+  print(list_of_items[item])
+
+# Here's a basic rundown of the While Loop:
+# while something_is_true:
+# Do something repeatedly
+# Until the condition becomes false, the while loop continues to execute
+
+# If you ever get caught in an infinte loop and you're not sure why, write a print statement and enter your condition in the print statement to see why it never becomes False
+# while 5 > 3:
+#   print(5 > 3)
+
+# Reeborg Challenge - Hurdle Loop 2:
+#   def turn_right():
+#     turn_left()
+#     turn_left()
+#     turn_left()
+
+# def jump():
+#     move()
+#     turn_left()
+#     move()
+#     turn_right()
+#     move()
+#     turn_right()
+#     move()
+#     turn_left()
+
+# while at_goal() != True: | can also write "while not at_goal():"
+#     jump()
+
+# Reeborg Challenge - Hurdle Loop 3:
+# def turn_right():
+#     turn_left()
+#     turn_left()
+#     turn_left()
+
+# def jump():
+#     # move()
+#     turn_left()
+#     move()
+#     turn_right()
+#     move()
+#     turn_right()
+#     move()
+#     turn_left()
+
+# while at_goal() != True:
+#     # 1) Check if there is a wall in front of Reeborg with wall_in_front()
+#     if wall_in_front() == True:
+#         jump()
+#     # 2) Check if path is clear with front_is_clear()
+#     if front_is_clear() == True:
+#         move()
+#     # 2.1) If the path is not clear after checking for a wall and jumping, jump again
+#     else:
+#         jump()
+
+# Reeborg Challenge - Hurdle Loop 4:
+# def turn_right():
+#     turn_left()
+#     turn_left()
+#     turn_left()
+
+# def jump():
+#     # 2) Orient Reeborg for his jump by turning left
+#     turn_left()
+#     # 3) Continuously check if the wall is still towards Reeborg's right
+#     while wall_on_right():
+#         # 4) Check to see if Reeborg has made it to the goal to avoid an infinite loop with checking for walls on the right side
+#         if at_goal() != True:
+#             # 5) If Reeborg's front is clear, let him move forward
+#             if front_is_clear():
+#                 move()
+#             else:
+#                 turn_left()
+#             # 6) If the wall is not to Reeborg's right, turn right and move to get him over the hurdle
+#             if not wall_on_right():
+#                 turn_right()
+#                 move()
+#         # 4.1) Break the loop once Reeborg made it to the finish line
+#         else:
+#            break
+
+# while at_goal() != True:
+#     # 1) Check if a wall is in front of Reeborg with wall_in_front()
+#     if wall_in_front():
+#         jump()
+#         # 7) Once Reeborg is over the hurdle, turn right to make him face down
+#         if right_is_clear():
+#             turn_right()
+#     # 8) If a wall is not in front, move Reeborg
+#     else:
+#         move()
+
+# Reeborg Challenge: Maze
+# def turn_right():
+#     turn_left()
+#     turn_left()
+#     turn_left()
+
+# # Helps Reeborg follow the right-side of the wall
+# def follow_right_wall():
+#     # While there is a wall on Reeborg's right, move forward
+#     while wall_on_right():
+#         if not front_is_clear():
+#             turn_left()
+#         else:
+#             move()
+#     # Check to see if Reeborg is still not at the goal
+#     if not at_goal():
+#         # If Reeborg does not have a wall to his right, turn right and move forward
+#         if right_is_clear():
+#             turn_right()
+#             move()
+
+# while not at_goal():
+#     # Check if there is a wall on Reeborg's right
+#     follow_right_wall()
+
+# Refactoring the maze code to handle edge cases that would cause Reeborg to loop in circles endlessly:
+# def turn_right():
+#     turn_left()
+#     turn_left()
+#     turn_left()
+
+# # Helps Reeborg follow the right-side of the wall
+# def follow_right_wall():
+#     # Prevents Reeborg from endlessly turning in circles by allowing him to move to a point where there is a wall on his right
+#     if front_is_clear():
+#         move()
+#     # While there is a wall on Reeborg's right, move forward
+#     while wall_on_right():
+#         if not front_is_clear():
+#             turn_left()
+#         else:
+#             move()
+#     # Check to see if Reeborg is still not at the goal
+#     if not at_goal():
+#         # If Reeborg does not have a wall to his right, turn right and move forward
+#         if right_is_clear():
+#             turn_right()
+#             move()
+#             # Prevents Reeborg from endlessly turning in circles by allowing him to move to a point where there is a wall on his right
+#             if front_is_clear():
+#                 move()
+
+# while not at_goal():
+#     # Check if there is a wall on Reeborg's right
+#     follow_right_wall()

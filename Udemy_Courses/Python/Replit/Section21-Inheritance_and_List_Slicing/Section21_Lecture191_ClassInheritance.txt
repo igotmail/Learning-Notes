@@ -1,0 +1,47 @@
+# Lecture 190: Class Inheritance
+# This small program demonstrates how we would use inheritance.
+
+# Helpful website for inheritance: https://www.w3schools.com/python/python_inheritance.asp
+
+# This is the parent, base, or the super class
+class Animal:
+
+  def __init__(self):
+    self.num_eyes = 2
+
+  def breathe(self):
+    print("Inhale, exhale.")
+
+
+# This is the child or the derived class
+# To allow this class to inherit from the parent class, we first pass the Animal class as an argument.
+class Monkey(Animal):
+  # Secondly, we then add the super() method in this class' init method
+  # By passing the Animal class as an argument and adding the super function in the Monkey class' init method, this program now knows that the Monkey class inherits all the attributes and methods from the Animal class.
+  def __init__(self):
+    super().__init__()
+
+  # If you wanted to inherit a method from a parent class and modify it, here's how
+  # The super() function will allow us to add more functionality to the breathe() method from the Animal class
+  # We step into the super class (parent class) by using the super() function plus the dot operator and type the name of the method from the class we want to modify.
+  # Any code that we write after calling the super().breathe() method will be additional instructions
+  # The code from the breathe() method in the Animal class will be executed first, then the code from the breathe() method in the Monkey class will be executed second. We're extending the functionality of the breathe() method
+  def breathe(self):
+    super().breathe()
+    print("Breathing at the top of a tree.")
+
+  def climb_tree(self):
+    print("Climbing the tree.")
+
+
+# Initializing an object from the Monkey class
+colobus = Monkey()
+
+# Method from the Monkey class
+colobus.climb_tree()
+
+# Method from the Animal class that the Monkey object inherited
+colobus.breathe()
+
+# Attribute from the Animal class that the Monkey object inherited
+print(f"Colobus has {colobus.num_eyes} eyes.")

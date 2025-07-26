@@ -1,0 +1,35 @@
+# Lecture 117: Does Python Have Block Scope?
+
+# The Python programming language does not have block scope
+
+# Initial Interpretation - This means that Python can access variables that are inside of objects like if statements, loops, and switch conditions even though the same variables are declared/initialized in the if statement
+
+# In programming languages like C++, JavaScript, or Java, variables that are declared inside of if statements, loops, or switch conditions are only accessible within those objects. Meaning they connot be used outside of those if statements, loops, or switch conditions
+
+# 1) Example of accessing a variable outside of an if statement:
+game_level = 3
+enemies = ["Skeleton", "Zombie", "Alien"]
+if game_level < 5:
+  new_enemy = enemies[0]
+
+print(f"Accessing variable 'new_enemy' from if statement: {new_enemy}")
+
+# 2) Example of accessing a variable inside of a for loop:
+enemy_count = 0
+for enemy in enemies:
+  if enemy == "Alien":
+    enemy_name = enemy
+  enemy_count += 1
+
+print(f"Accessing variable 'enemy_name' from for loop: {enemy_name}") # - Alien
+print(f"Accessing varialbe 'enemy_count' from for loop: {enemy_count}") # - 3
+
+# 3) This does not work with functions (trying to access the variable orc_ememy)
+def add_new_enemy():
+  """Adds new enemy to the enemies list"""
+  level = 5
+  enemies.append("Orcs")
+  if level >= 5:
+    orc_enemy = enemies[len(enemies) - 1]
+
+print(orc_enemy)

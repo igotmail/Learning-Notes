@@ -1,0 +1,22 @@
+# Lecture 125 - Play Computer and Evaluate Each Line
+
+# Steps to fix/clear/remove bugs:
+# 3) Evaluate Each Line
+# Understand what each line of code is doing could lead you to the defect. This step can be paired with an IDE's built in debugger.
+
+year = int(input("What's your year of birth?: "))
+# Before: 
+# if year > 1980 and year < 1994:
+# After: 
+if year <= 1980:
+  print("You are Gen X.")
+elif year >= 1981 and year <= 1994:
+  print("You are a Millenial.")
+elif year > 1994:
+  print("You are a Gen Z.")
+
+# What is this block of code doing? - This if block is evaluating if the variable year is greater than 1980 and less than 1994.
+
+# What are you assumptions about this block of code? - The variable year will be compared between the integers 1980 and 1994. However, the code does not handle a use case for when the user enters that they were born on 1980 or 1994. 
+
+# How can we resolve this issue? - The comparison operators can be changed to handle if the user enters 1980 and 1994. We can also update the block of code to handle users that were born before 1980.

@@ -1,0 +1,8 @@
+# The input() function can receive data entered by the user:
+input("What's your favorite color? \n")
+
+# You can nest the input() function in a print() function - The input() function will be executed first
+print("Hello " + input("What's your name? "))
+
+# The value you enter for the input() function will be printed in the console
+# print(input("How are you?")) -> Input given: Good -> print("Good")

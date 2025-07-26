@@ -1,0 +1,20 @@
+#Remember to use the random module
+#Hint: Remember to import the random module here at the top of the file. 🎲
+import random
+	 
+#Write the rest of your code below this line 👇
+
+# 1) Create a variable to store the randomly generated number
+coinFlip = random.randint(0, 1)
+
+# 2) Prepare an if statement that checks whether coinFlip is 0 or 1
+if coinFlip == 0:
+    print("Tails")
+else:
+    print("Heads")
+
+# Code Refactor:
+# if random.randint(0, 1) == 0:
+#     print("Tails")
+# else:
+#     print("Heads")

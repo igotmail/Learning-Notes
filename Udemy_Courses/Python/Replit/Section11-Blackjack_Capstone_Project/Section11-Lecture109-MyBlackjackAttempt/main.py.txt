@@ -1,0 +1,157 @@
+import random
+import art
+from replit import clear
+
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+# cards = [11]
+
+# Used in step 2.3
+def deal_card():
+  """Returns a random card from the deck."""
+  # You can also use random.choice() instead of what I used here
+  return cards[random.randint(0, len(cards) - 1)]
+
+# Used in step 2.4
+def calculate_score(player_cards):
+  """Takes a list of cards and returns the total score for each player"""
+  score = sum(player_cards)
+  # This if statement changes the value 11 to 1 if a player's hand goes over 21 by adding 11. For example [10, 8] = 18. Adding an 11 will then get changed to 1 - [10, 8, 11] -> [10, 8, 1] = 19
+  if score > 21:
+    for card in player_cards:
+      if card == 11:
+        player_cards.remove(card)
+        player_cards.append(1)
+        score = sum(player_cards)
+        return score
+    else:
+      return score
+  else:
+    return score
+
+# Used in steps 3.1.2 and 3.1.4
+def new_game():
+  another_game = input("Do you want to play another game of Blackjack? Type 'y' or 'n': ")
+  if another_game == 'y':
+    clear()
+    print(art.logo)
+    new_user_cards = []
+    new_computer_cards = []
+    for card in range(2):
+      new_user_cards.append(deal_card())
+      new_computer_cards.append(deal_card())
+    print(f"Your cards: {new_user_cards}, current score: {calculate_score(new_user_cards)}")
+    print(f"Computer's first card: {new_computer_cards[0]}")
+    resume_game(player_hand=new_user_cards, opponent_hand=new_computer_cards)
+
+# Used in step 3.1.3
+def compare(final_player_hand, final_opponent_hand, player_score, opponent_score):
+  print(f"Your final hand: {final_player_hand}, final score: {player_score}")
+  print(f"Computer's first card: {final_opponent_hand[0]}")
+  print(f"Computer's final hand: {final_opponent_hand}, final score: {opponent_score}")
+  if player_score == 21 and opponent_score == 21:
+    print("Draw 🙃")
+  elif player_score == opponent_score:
+    print("Draw 🙃")
+  elif opponent_score == 21:
+    print("Your opponent has Blackjack. You lose! 😱")
+  elif player_score == 21:
+    print("You have Blackjack. You Win! 😎")
+  elif player_score > 21:
+    print("You went over. You lose. 😭")
+  elif opponent_score > 21:
+    print("Your opponent went over. You Win! 😁")
+  elif player_score < opponent_score:
+    print("Opponent Wins! 😤")
+  else:
+    print("You Win! 😃")
+
+# Used in step 3
+def resume_game(player_hand, opponent_hand):
+  # Used to stop the program once the user is done
+  is_finished = False
+  
+  while is_finished is not True: 
+    add_card = input("Type 'y' to get another card. Type 'n' to pass: ")
+  
+    # 3.1) If yes, add another card to the player's hand
+    if add_card.lower() == 'y':
+      player_hand.append(deal_card())
+      user_score = calculate_score(player_hand)
+      
+      # 3.1.1) Display the updated hand of the player and the first card of the computer
+      print(f"Your cards: {player_hand}, current score: {user_score}")
+      print(f"Computer's first card: {opponent_hand[0]}")
+
+      # 3.1.2) If the player's score goes over 21, the game will end
+      if user_score > 21:
+        print("You went over. You lose. 😭")
+        print(f"Your cards: {player_hand}, final score: {user_score}")
+        print(f"Computer's cards: {opponent_hand}, their score: {calculate_score(opponent_hand)}")
+        is_finished = True
+        new_game()
+    else:
+      # 3.1.3) Determine if the computer's hand is less than 17. Keep dealing cards to the computer until their hand is greater than 17
+      while calculate_score(opponent_hand) < 17:
+        opponent_hand.append(deal_card())
+        
+      # 3.1.4) Compare both scores after the user and computer are finished receiving cards 
+      # user_score and computer_score are used to more easily access the player's existing and final score
+      computer_score = calculate_score(opponent_hand)
+      user_score = calculate_score(player_hand)
+      compare(final_player_hand=player_hand, final_opponent_hand=opponent_hand, player_score=user_score, opponent_score=computer_score)
+      is_finished = True
+      # 3.1.5) Ask the user if they'd like to continue playing the game
+      new_game()
+
+# 1) Ask the user to play blackjack
+play_blackjack = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+
+# 2) If yes, clear the console and display Blackjack Ascii art and the cards the player + computer have been dealt using the deal_card() function
+if play_blackjack.lower() == "y":
+  # 2.1) Clear the console and print Blackjack logo
+  clear()
+  print(art.logo)
+  
+  # 2.2) Initialize 2 new lists to carry new cards for each player
+  user_cards = []
+  computer_cards = []
+
+  # 2.3) Deal 2 cards to each player
+  # user_cards.append(deal_card())
+  # user_cards.append(deal_card())
+  # computer_cards.append(deal_card())
+  # computer_cards.append(deal_card())
+  for card in range(2):
+    user_cards.append(deal_card())
+    computer_cards.append(deal_card())
+  
+  # 2.4) Display the cards the player has. Add the sum of the cards for the player using the calculate_score function
+  # Keep the computer's 2nd card hidden and don't display the sum of the computer's cards
+  # These if statements handle the rare exception that both the player or computer receives two 11 cards on their first hand. 
+  # If this happens, the program will display: Your cards: [11, 11], current score 12. So these if statements preemptively change the 2nd card to 1 before the calculate_score function does it. 
+  # The end result is more comprehensible: Your cards: [11, 1], current score: 12
+  # You can test this by making the cards list on line 5 only contain 11
+  if user_cards[0] == 11 and user_cards[1] == 11:
+    user_cards[1] = 1
+    print(f"Your cards: {user_cards}, current score: {calculate_score(user_cards)}")
+  else:
+    print(f"Your cards: {user_cards}, current score: {calculate_score(user_cards)}")
+    
+  if computer_cards[0] == 11 and computer_cards[1] == 11:
+    computer_cards[1] = 1
+    print(f"Computer's first card: {computer_cards[0]}")
+  else:
+    print(f"Computer's first card: {computer_cards[0]}")
+    
+  # 2.5) Ask the user if they would like another card
+  resume_game(player_hand=user_cards, opponent_hand=computer_cards)
+
+# Problems to fix:
+# 1) The calculate_score function will return 0 if the user starts out with a blackjack (corrected - code removed)
+# 2) A player that has two 11's in their hand will result in a score of 12 (corrected - added 2 if statements in step 2.4)
+# 3) Game does not end if you initially say 'n,' that you don't want to play a game (corrected - changed while loop on line 67 from while is_finished is False -> while is_finished is not True)
+# 4) Newer cards in new_game() are not being updated. Use the debugger to figure this out (corrected - the compare() function was using old list infromation. So the scores were being updated but the lists that were used in previous rounds were still be used. I allowed the player's and opponent's to be passed as arguments and set up the final_player_hand and final_opponent_hand as parameters)
+
+# Tips:
+# 1) Keep replaying the game and figure out what you're missing based on your program's output
+# 2) Also refer to the hints that are in the lecture replit

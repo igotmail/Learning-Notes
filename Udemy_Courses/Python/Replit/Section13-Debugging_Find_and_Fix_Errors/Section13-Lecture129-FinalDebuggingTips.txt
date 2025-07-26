@@ -1,0 +1,23 @@
+# Lecture 129: Final Debugging Tips
+
+# Steps to fix/clear/remove bugs:
+# 7) Take a Break
+# If you're unable to find the issue and develop a solution within a given timeframe (15 min), take a break and come back the program later.
+# Resting your mind by walking away from the program, focusing on something else, or by sleeping to rejuvenate yourself. Coming back after a good rest may help you find the problem easier and faster
+
+# 8) Ask a friend
+# Know that you're not alone when dealing with bugs. Reaching out for help from a friend could give you a new perspective on what the bug might be and how to fix it.
+# Your friend may not make the same assumptions that you've made. So, they're able to view your code with a different idea in mind and find the solution to your problem.
+# Additionally, reaching out to a public forum (Udemy Q&A, Discord, StackOverflow, etc.) can also help you figure out what hte problem is. Use these public forums as a last resort when you've exhausted all other ideas. Try to figure out the problem yourself first in every way possible and then go to these sites when nothing else works.
+
+# 9) Run your code after small developments
+# Each time your write a new block of code, run your program to ensure that the entire program works.
+# More specifically, you can separate your blocks of code and feed it information to make sure that those specific blocks of code work too
+# This is an Agile approach by breaking down large tasks into smaller bite sized tasks. Making sure that each part of program works, ensures that you will most likely not encounter bugs.
+
+# 10) Break the program down into smaller more manageable blocks of code
+# Organize each code block as a step list or a TODO list to complete the entire project -> 1, 2, 3, 4, etc. The TODO steps can be written in psuedocode or in plain English
+# Create a flowchart diagram that shows the flow and each step of the program. The TODO list can be built from the flowchart diagram
+# This will help you focus on 1 part of the program at a time
+# Any issues that you find within each code block will be easier to spot and fix. This can help you isolate the issue in certain steps or code blocks
+# Afterwards, if an issue does occur within your program, you can more easily understand which block of code is causing the issue because you've familiarized yourself with each step of the program

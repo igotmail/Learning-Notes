@@ -1,0 +1,37 @@
+# Lecture 123: Describe the Problem
+
+# Debugging - The process of removing errors/bugs from your code
+
+# Be aware of the tools that you could use to help identify the issues that you see in your code
+# 1) Thonny - https://thonny.org/
+# 2) Python Tutor - https://pythontutor.com/visualize.html#mode=edit
+# 3) Python Debug Libraries - https://docs.python.org/3/library/debug.html
+
+# Be aware of the different types of bugs that you can encounter:
+# Run Time Errors - The program is syntactically correct, but does not do what it's expected to do. Often called a Logical Error
+
+# Steps to fix/clear/remove bugs:
+# 1) Describe the problem: 
+# Comprehending what the defect is can help you in a couple of ways:
+# 1.1 - Helps you narrow down where the defect is in you program
+# 1.2 - Helps you avoid the same issue in the future
+# 1.3 - Overall, helps you become more effective and familiar with programming
+
+# Example - Describe the Problem:
+def my_function():
+    # Before:
+    # for i in range(1, 20)
+    # After: 
+    for i in range(1, 21):
+      print(i) # <- Use print statements to visualize what your program is doing
+      if i == 20:
+        print(f"{i} - You got it.")
+my_function()
+
+# What is the for loop doing? - It is iterating through a range from 1 - 19
+
+# When is the function meant to print "You got it"? - The function will print "You got it" once i is equal to 20
+
+# What are you assumptions about i? - Initially, we may believe that i will eventually be equal to 20. However, the range function's 2nd argument is excluded from the range. The for loop will continue until i is equal to 19
+
+# Testing your assumptions to see which of those assumptions are actually false can give you an idea of what is going on and how to fix the problem

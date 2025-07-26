@@ -1,0 +1,96 @@
+# Lecture 93: Nesting Lists and Dictionaries
+
+# Think of Lists and Dictionaries as folders. You can place one or the other inside each other
+
+# {
+  # key: [List],
+  # key2: {Dict}
+#}
+
+# 1) List in Dictionary:
+list_in_dictionary = {
+  "sports":[
+    "Hockey", "Football", "Basketball", "Lacrosse"
+  ],
+  "shows":[
+    "Big Bang Theory", "Stranger Things", "The Last of Us", "The Mandalorian"
+  ]
+}
+
+# Printing out Nested list in dictionary
+print("Nested List in Dictionary:", list_in_dictionary["sports"], "\n")
+
+# Another example of Lists in Dictionaries:
+travel_log = {
+  "France": ["Paris", "Lille", "Dijon"],
+  "Germany": ["Berlin", "Hamburg", "Stuttgart"],
+}
+
+print("============================================================= \n")
+
+# ------------------------------------------------------------------ #
+
+# 2) Dictionary in a Dictionary: (https://www.w3schools.com/python/python_dictionaries_nested.asp)
+
+# Professor's format: (List in a Nested Dictionary)
+professors_travel_log = {
+  "France": {"cities_visited": ["Paris", "Lille", "Dijon"], "total_visits": 2},
+  "Germany": {"cities_visited": ["Berlin", "Hamburg", "Stuttgart"], "total_visits": 5},
+}
+
+travel_log2 = {
+  "France": {
+    "cities_visited": {
+      "Paris", "Lille", "Dijon"
+    }
+  },
+  "Bahamas": {
+    "ports_visited": {
+      "West Port", "East Port"
+    }, 
+    "total_visits": {
+      2
+    }
+  },
+}
+
+# Printing out nested dictionary in a dictionary:
+print("Nested Dictionary in Dictionary: Cities Visited: France:", travel_log2["France"]["cities_visited"], "\n")
+print("Nested Dictionary in Dictionary: Cities Visited: Bahamas:", travel_log2["Bahamas"]["ports_visited"], "\n")
+
+print("Professor's List in a nested Dictionary: Cities Visited: Germany:", professors_travel_log["Germany"]["cities_visited"], "\n")
+print("Professor's List in a nested Dictionary: Total Visits: Germany:", professors_travel_log["Germany"]["total_visits"], "\n")
+print("Professor's List in a nested Dictionary: Selecting a single city from the nested List: France:", professors_travel_log["France"]["cities_visited"][0], "\n")
+
+print("============================================================= \n")
+# ------------------------------------------------------------------ #
+
+# 3) Dictionary in List
+dictionary_in_list = [
+  {
+    "Jeff", "Jeef", "Juff", "Geof"
+  },
+  {
+    "Bib", "Bub", "Borb", "Biff"
+  }
+]
+print("Nested Dictionary in List:", dictionary_in_list[0], "\n")
+
+# List with 2 Dictionaries - Dictionaries don't have keys as they're elements in a list
+# Remember, Dictionaries are denotated by the curly braces {}
+# Each dictionary in this list has 3 key:value pairs - country, cities_visited, and total_visits
+travel_log3 = [
+  {
+   "country": "France", 
+   "cities_visited": ["Paris", "Lille", "Dijon"], 
+   "total_visits": 12
+  },
+  {
+    "country": "Germany", 
+    "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
+    "total_visits": 5
+  },
+]
+print("Nested Dictionary in List: Country:", travel_log3[0]["country"], "\n")
+print("Nested Dictionary in List: Cities Visited:", travel_log3[0]["cities_visited"], "\n")
+print("Nested Dictionary in List: Total Visits:", travel_log3[0]["total_visits"], "\n")

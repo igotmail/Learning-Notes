@@ -1,0 +1,13 @@
+# 1) Import the random module here
+import random
+
+# Split string method
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+# 2) Use the len() function to dynamically determine how many names were entered and use the randint() function to print out a random name:
+# Remember to add - 1 after len() to avoid an index out of bounds error -> [0, 1, 2, 3] -> len() will count 4 -> If 4 is selected, the program will throw an error
+print(names[random.randint(0, len(names) - 1)] + " is going to buy the meal today!")

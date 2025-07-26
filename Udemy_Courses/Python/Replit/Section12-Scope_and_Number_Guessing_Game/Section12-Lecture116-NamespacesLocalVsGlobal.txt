@@ -1,0 +1,113 @@
+# Lecture 116: Namespaces - Local vs. Global Scope
+
+# Python Namespace Official Documentation: https://docs.python.org/3/tutorial/classes.html
+
+# This link defines namespaces as a mapping from names to objects
+# Most namespaces are currently implemented as dictionaries
+# Examples of namespaces are:
+# 1) The set of built-in names (containing functions such as abs() and  built-in exception names)
+# 2) The global names in a module; and the local names in a function invocation.
+# modname.funcname - object.attribute 
+# modname = object | funcname = attribute 
+
+#####################################################################
+
+# Lecture Notes: 
+
+# Scope: 
+# My definition - the level of accessibility certain variables, if statements, loops, functions, modules, classes, or objects have based on how they're declared/initialized in a program
+# You can think of scope being represented by an apple tree that is enclosed by a home owner's fence. The home owner owns anything that is inside the fence like the apple tree but does not have any jursidiction outside of the fence
+
+# 1) Global and Local Scope: 
+# Global variable
+enemies = 1
+
+def increase_enemies():
+  # Local variable to increase_enemies()
+  enemies = 2
+  # Uses local enemies variable
+  print(f"Enemies inside increase_enemeies function: {enemies}")
+
+increase_enemies()
+# Uses global enemies variable
+print(f"Enemies outside of increase_enemies function: {enemies}")
+
+print("")
+print("======================================================== \n")
+
+# 2) Local Scope Example: 
+def drink_potion():
+  potion_strength = 2
+  print(f"Strength of potion = {potion_strength}")
+
+drink_potion()
+
+# This print statement cannot print potion_strength to the console because this variable only exists in the drink_potion() function. 
+
+# This means that the print statement doesn't know what the potion_strength variable is in this case because the variable is out of scope and only accessible in the drink_potion() function. 
+
+# To this print statement, it technically doesn't exist
+# We'll get a "NameError: name 'potion_strength' is not defined" error
+# print(potion_strength)
+
+print("")
+print("======================================================== \n")
+
+# 3) Global Scope
+
+# The difference between global scope and local scope is where you define/initialize objects in your program
+
+# This variable is a global variable as it is initialized outside any if statement, loop, function, class, etc. This is sometimes referred to as "Top Level." It's not physically defined at the top of the program, it just doesn't belong soley to another object
+# This variable can be accessed by anything that is initialized after it - This is an example of Namespace!
+player_intelligence = 10
+
+def player_stats():
+  # These variables are local variables
+  player_strength = 4
+  player_dexterity = 5
+  # Legal statement - player_intelligence is a global variable
+  print(player_intelligence)
+
+player_stats()
+  
+print("")
+print("======================================================== \n")
+
+# Namespace - a mapping from names to objects
+# Scope - a textual region of a Python program where a namespace is directly accessible
+
+# Anything that we give a name to has a namespace
+
+# Example of namespace according to this medium article: https://medium.com/swlh/mastering-python-namespaces-and-scopes-7eba67aa3094
+
+a = 1 # namespace {a: 1} <-- At this point, any code below this initialization can access variable a
+
+# Does 'a' exist in the namespace? Yes!
+# Proceed without error
+print(a) # => 1
+
+# Does 'b' exist in the namespace? No. Variable b is not a part of the namespace, yet
+# Throw a 'NameError'
+print(b) # => NameError: name 'b' is not defined.
+
+b = 16 # namespace {a: 1, b: 16} <-- b is now a part of the namespace
+
+# no more problems!
+print(b)
+
+# So, both a and b are at top level scope, but they are in different namespaces. 
+# b doesn't exist in the namespace that the first print(b) statement is in until b is initialized
+
+print("")
+print("======================================================== \n")
+
+# Another example, velocity is a global variable but exists only in the namespace at it's line of initialization (106) and below
+# namespace {velocity: 50, speed_powerup()}
+velocity = 50
+def speed_powerup():
+  # acceleration is a local variable and only exists in the speed_powerup() function. This function has its own scope and namespace
+  # namespace {velocity: 50, acceleration: 2.5}
+  acceleration = 2.5
+  print(velocity)
+
+speed_powerup()

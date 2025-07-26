@@ -1,0 +1,113 @@
+from replit import clear
+import art
+
+# I didn't use any lists in this program to challenge myself. I only wanted to use dictionaries.
+
+# Links that helped me complete this program:
+# In add_new_auctioneer function: https://www.w3schools.com/python/python_dictionaries.asp
+# Step 4: https://www.askpython.com/python/string/python-string-substring
+# Step 5: https://pythonguides.com/python-format-number-with-commas/
+
+# Keep in mind that I added more variables as I worked, I initially thought that I just needed the dictionary variable and didn't know that I needed to add these variables until I developed more of the program
+# 1) Initilize the following: 
+  # 1.1) An empty dictionary
+  # 1.2) A boolean variable for the while loop
+  # 1.3) An integer variable to count the number of auctioneers in the auction
+  # 1.4) An integer variable to capture the highest bid 
+  # 1.5) A string to capture the auction's winner
+auction_participants = {}
+is_finished = False
+user_count = 1
+highest_bid = 0
+bid_winner = ""
+
+# This dictionary updates the auction_participants dictionary in step 3.2
+def add_new_auctioneer(auctioneer, bid_amount):
+  new_dictionary = {
+    # I add a number to each key because the keys need to be unique otherwise the information would simply be overwritten (https://www.w3schools.com/python/python_dictionaries.asp)
+    # Dictionaries do not allow duplicate keys
+    "user" + str(user_count): auctioneer,
+    "bid" + str(user_count): bid_amount,
+  }
+  auction_participants.update(new_dictionary)
+
+# 2) Welcome the user with Gavel Ascii art and a print statement
+print(art.logo)
+print("Welcome to the secret auction program!")
+
+# 3) We'll us a while loop to continuously add more users to the dictionary
+while is_finished == False:
+  # 3.1) Ask the user for their name and their bid
+  user_name = input("What is your name?: ")
+  user_bid = int(input("What is your bid?: $"))
+
+  # 3.2) Add the user's name and bid to the auction participants dictionary by using a function
+  add_new_auctioneer(auctioneer=user_name, bid_amount=user_bid)
+  print(auction_participants)
+
+  # 3.3) Ask if the user would like to continue with the auction
+  continue_auction = input("Are there any other bidders? Type 'Yes' or 'No' \n")
+  if continue_auction.lower() == 'yes':
+    user_count += 1
+    clear()
+    continue
+  else:
+    is_finished = True
+
+# 4) We'll then loop through each key:value pair to know who has the greatest bid
+# https://www.askpython.com/python/string/python-string-substring
+for key in auction_participants:
+  # 4.1) We need to find the values that are integers. We can do so by finding out which values have the same data type as the highest_bid value since highest_bid is an integer
+  if type(auction_participants[key]) == type(highest_bid):
+    # 4.2) Then, we check to see if the value is greater than highest_bid. If it is, we'll update the highest_bid value
+    if auction_participants[key] > highest_bid:
+      highest_bid = auction_participants[key]
+      # 4.3) This splicing technique retrieves the end number of "bid" and adds it to the "user" key. 
+      # After the highest value is found, this if block no longer executes. So, we don't look for more bids
+      # After finding the highest value, we add the end number to "user" and then find the value that is under the "user[#]" key. 
+      # For example, "bid1":250, "bid2":850 (greatest number in dictionary) -> str(key[3:]) finds "2" from bid2 and adds "2" to "user" -> "user2"
+      # bid_winner = auction_participants["user2"] -> This is how we get the bid winner
+      # Only works for bids 0 - 9. We'll need another if statement that can handle bids that go above 10 - 99:
+      # if int(key[3:4]) >= 10 and <= 99:
+      # bid_winner = auction_participants["user" + str(key[3:4])
+      # else:
+      bid_winner = auction_participants["user" + str(key[3:])]
+
+# 5) Format highest_bid with commas: https://pythonguides.com/python-format-number-with-commas/
+highest_bid = "{:,}".format(highest_bid)
+
+# 6) Print out the highest_bid value
+print(f"{bid_winner} wins the auction by betting ${highest_bid}!")
+
+# ================================================================== #
+
+# Professor's Solution: 
+
+# from replit import clear
+# from art import logo
+# print(logo)
+
+# bids = {}
+# bidding_finished = False
+
+# def find_highest_bidder(bidding_record):
+#   highest_bid = 0
+#   winner = ""
+#   # bidding_record = {"Angela": 123, "James": 321}
+#   for bidder in bidding_record:
+#     bid_amount = bidding_record[bidder]
+#     if bid_amount > highest_bid: 
+#       highest_bid = bid_amount
+#       winner = bidder
+#   print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+# while not bidding_finished:
+#   name = input("What is your name?: ")
+#   price = int(input("What is your bid?: $"))
+#   bids[name] = price
+#   should_continue = input("Are there any other bidders? Type 'yes or 'no'.\n")
+#   if should_continue == "no":
+#     bidding_finished = True
+#     find_highest_bidder(bids)
+#   elif should_continue == "yes":
+#     clear()

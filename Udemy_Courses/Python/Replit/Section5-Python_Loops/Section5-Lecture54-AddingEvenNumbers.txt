@@ -1,0 +1,17 @@
+#Write your code below this row 👇
+
+# 1) Create a companion variable that captures the result of adding the even numbers from 1 - 100
+even_total = 0
+
+# Create a for loop using modulus to find the even numbers in a range from 1 - 100
+for num in range(1, 101):
+    if num % 2 == 0:
+        even_total += num
+print(even_total)
+
+# An additional solution
+total = 0
+
+for num in range(2, 101, 2):
+  total += num
+print(total)

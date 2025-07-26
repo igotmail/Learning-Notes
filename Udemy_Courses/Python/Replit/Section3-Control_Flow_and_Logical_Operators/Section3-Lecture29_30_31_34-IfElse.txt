@@ -1,0 +1,103 @@
+#######################################################################
+
+# COMPARISON OPERATORS
+
+# > - Greater Than
+# < - Lesser Than
+# >= - Greater Than or Equal To
+# <= - Lesser Than or Equal To
+# == - Equal To
+# != - Not Equal To
+
+#######################################################################
+
+# SCOPE:
+
+# Be aware of your indentation for blocks of code like this. These indentations refer to a block of code.
+
+# It can also indicate that the indented block of code is a part of a scope. For example, the print("Please enjoy the ride!") is scoped under the "if" block.
+
+# This means that the print("Please enjoy the ride!") is only accessible in the "if" block.
+
+#######################################################################
+
+# Here we create a small block of code that runs a check if a "customer" is tall enough to purchase a ticket for a rollercoaster
+print("Lecture 29 - If/Else Exercise: \n")
+
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm?: "))
+
+# 1) If the customer's is height is greater than 120 cm, allow the customer to purchase a ticket - else do not allow the customer to purchase a ticket
+if height > 120:
+  print("Please enjoy the ride!")  # <- Indentation is important
+else:
+  print("You must be at least 120cm to ride the rollercoaster. \n")
+
+print("=========================================================== \n")
+
+#######################################################################
+
+# Lecture 30: Coding Exersise - Modulo %
+
+print("Lecture 30 - Coding Exercise - Modulo % \n")
+
+number = int(input("Please enter a number: "))
+
+if number % 2 == 0:
+  print("This is an even number. \n")
+else:
+  print("This is an odd number. \n")
+
+print("=========================================================== \n")
+
+#######################################################################
+
+# Lecture 31: NESTED IF + ELIF STATEMENTS
+
+print("Lecture 31 - Nested If Exercise: \n")
+
+customerHeight = int(input("Please enter your height: "))
+
+if customerHeight > 120:
+  print("Please enjoy the ride!")
+  customerAge = int(input("Please enter your age: "))
+  if customerAge < 12:
+    print("Please pay $5 dollars.")
+  elif customerAge <= 18:
+    print("Please pay $7 dollars.")
+  else:
+    print("Please pay $12 dollars.")
+else:
+  print("You must be at least 120cm to ride the rollercoaster.")
+
+print("=========================================================== \n")
+
+######################################################################
+
+# Lecture 34: MULTIPLE IF STATEMENTS
+
+# Documentation for formatting strings {:.2f}: https://docs.python.org/3/tutorial/inputoutput.html -> check 7.1.1 Formatted String Literals
+
+print("Lecture 34 - Multiple If Statements")
+
+anotherCust = int(input("Please enter your height: "))
+
+if anotherCust > 120:
+  print("You can ride the rollercoaster!")
+  anotherAge = int(input("Please enter your age: "))
+  if anotherAge < 12:
+    print("Child tickets are $5.00.")
+    ticketPrice = 5
+  elif anotherAge <= 18:
+    print("Youth tickets are $7.00.")
+    ticketPrice = 7
+  else:
+    print("Adult tickets are $12.00.")
+    ticketPrice = 12
+  takePhoto = input("Would you like to take a photo on the rollercoaster? Enter 'Y' for Yes or 'N' for No: ")
+  if takePhoto == "Y":
+    print(f"Your total price is: ${(ticketPrice + 3):.2f}.")
+  elif takePhoto == "N":
+    print(f"Your total price is: ${ticketPrice:.2f}.")
+else:
+  print("You must be taller to ride the rollercoaster.")

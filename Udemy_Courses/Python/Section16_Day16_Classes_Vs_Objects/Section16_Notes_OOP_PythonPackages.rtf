@@ -1,0 +1,148 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24\lang9 Dylan Lawson\par
+Dr. Angela Yu\par
+Python Bootcamp\par
+22nd August 2023\par
+
+\pard\sa200\sl276\slmult1\qc Python Bootcamp Notes\par
+
+\pard\sa200\sl276\slmult1\b\fs28 Section 16: Intermediate - Object Oriented Programming (OOP)\par
+\ul\b0 145. Why do we need OOP and how does it work?\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 The more complex our code becomes, the harder it is to manage\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 Our Coffee Machine program had plenty of decisions that needed to be implemented\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 The way we programmed our Coffee Machine is called \b Procedural Programming\ul\b0\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\b\fs24 Procedural Programming \b0 - a programming paradigm that creates \ul procedures/functions/methods\ulnone  that do particular things. One procedure can lead to another procedure. Eventually our code is executed from top to bottom\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 This is one of the earliest paradigms of programming.\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 This approach works but becomes encumbersome once your program reaches advanced levels of complexity.\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 How can maintain simplicity while creating more complex projects? -> \b Object Oriented Programming\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Object Oriented Programming \b0 - a programming paradigm that utilizes \ul objects and classes\ulnone . Classes can bundle related properties into objects. This paradigm takes advantage of \b Inheritance\b0 , \b Polymorphism\b0 , \b Encapsulation\b0 , and \b Abstraction\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\b0\fs24 Object Oriented Programming allows us to \ul breakdown\ulnone  complex problems/workflows/issues into smaller, manageable tasks\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 It also allows us to be able to \ul reuse\ulnone  code for additional projects\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 A Self Driving Car\ulnone  can be broken down into: \ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\ulnone\fs24 A Camera, Geolocation Device, Lane Detection, Battery/Fuel Management\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 A Drone\ulnone  can be broken down into:\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\ulnone\fs24 A Camera, Geolocation Device, Battery/Fuel Management\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 A Restaurant\ulnone  will need: \ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\ulnone\fs24 A Host, Waiter/Waitress, Chef, etc.\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 These 3 examples highlight the practice of breaking down real world entities into more specific roles, features, or properties related to these entities\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 146. How to use OOP: Classes and Objects\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Object Oriented Programming is named this way because we're trying to model a real-world entity\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 If we had a restaurant we will probably need to model a chef, busser, host, waiter, etc.\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 When modeling something, organize what you model does by:\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 What it has (\b attributes - variables that are associated with a model object\b0 )\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 What it does (\b methods - functions that are associated with a model object\b0 )\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b\fs24 Model Waiter (Class)\ulnone\b0 :\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 What it has (\b attributes\b0  that a watier has): \ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 is_holding_plate = True\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 tables_responsible = [4, 5, 6]\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 These are not free-floating, global scope variables. They are associated to the waiter\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 What it does (\b methods \b0 that a waiter does):\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 def take_order(table, order) - takes order to chef\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 def take_payment(amount) - add money to restaurant\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 These are not free-floating, global scope functions. They are associated to the waiter\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Once we've created the Waiter Model, we can generate multiple instances of this object. This is called a \b Class\ul\b0\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\b\fs24 Class \b0 - a blueprint for models/objects that are defined by their attributes and methods\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Models that are generated from the class are \b Objects\ul\b0\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 These objects could have slightly varying attributes and methods even though they are made from the same class\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 You can know when to use Classes when:\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 1) You notice that your program will need multiple objects\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 2) You notice that one object requires many attributes, methods, or other miscellaneous functions for its behavior\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 Instead of manually creating an object in the main.py file multiple times, create a separate class with the necessary attributes and methods \ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Then, import the class in the main.py file, or whichever file you need it in, and create an instance of the object in the main.py file\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Ultimately, this will help you organize your code. Classes help you organize your code when it comes to creating objects\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 147. Contructing Objects and Accessing their Attributes and Methods\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 A popular Class blueprint to practice with is a car\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 To declare a object in Python, you'll type \b car = CarBlueprint()\ul\b0\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 The naming convention for classes use PascalCasing\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 This helps differentiate between variable and function names that we've used in our program\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 car = Object\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 CarBlueprint() = Class\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 So, the car object inherits all of the attributes and the methods of the CarBlueprint() class\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 We'll practice using Classes and Objects using a predefined module/library called "turtle" -> Section15_Lecture147_TurtleExercise\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 I took additional notes in this python file\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 Turtle Graphics Documentation: {{\field{\*\fldinst{HYPERLINK https://docs.python.org/3/library/turtle.html }}{\fldrslt{https://docs.python.org/3/library/turtle.html\ul0\cf0}}}}\ul\f0\fs28\par
+
+\pard\sa200\sl276\slmult1 148. How to Add Python Packages and use PyPi\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Here we learn how to integrate existing packages into our projects\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 This will allow us to use the classes and objects that are prebuilt into the packages/libraries\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 There is a difference between the \b modules \b0 and packages that we've used in the past like "random" or "replit"\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\b\fs24 Packages\b0  are a larger scale of code compared to \b modules\b0 . \ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 PyPI is a website that let's us search existing packages that we can use for our own projects\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 PyPI stands for Python Package Index: {{\field{\*\fldinst{HYPERLINK https://pypi.org/ }}{\fldrslt{https://pypi.org/\ul0\cf0}}}}\ul\f0\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 We'll be using PyPI to help us install a package named "prettytable": {{\field{\*\fldinst{HYPERLINK https://pypi.org/project/prettytable/ }}{\fldrslt{https://pypi.org/project/prettytable/\ul0\cf0}}}}\ul\f0\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 To install a package to your local project, go to - PyCharm - File - Settings - Expand "Your Project" on the left-hand navigation pane - Python Interpreter - Click the plus button to install a new package - Enter the name of your package - select the package you want - click Install Package - PyCharm should inform you with a green message that the package was installed successfully\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\ulnone\fs24 If you want to see the source code of a package, after you import the package in your program, you can right click the package - Go To - Implementation\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 You can also do the same with Replit. Go to Replit - Packages (or Dependencies) on the left-hand navigation pane - Search for the package you want - Select the package - Click on the green "+" button - Replit should then install the package to your project\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 149. Practice Modifying Object Attributes and Calling Methods\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Here we worked on creating objects from the prettytable package using the PrettyTable() class\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 We used the documentation ({{\field{\*\fldinst{HYPERLINK https://pypi.org/project/prettytable/ }}{\fldrslt{https://pypi.org/project/prettytable/\ul0\cf0}}}}\f0\fs24 ) to utilize the methods and attributes in the PrettyTable() class to create an ASCII table\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 150. Building the Coffee Machine in OOP\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Here we used the Coffee Machine Classes Documentation to recreate the coffee machine using objects\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 The program that I created and the program that the instructor created can be found in the Section16_Exercises folder of the PycharmProjects folder\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 The way that I approached this object oriented way of programming was:\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 1) Review the Coffee Machine Classes documentation and the Coffee Machine Requirements\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 2) Determine which steps can be completed with the classes provided\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 3) Complete the other steps with Procedural Programming if they cannot be completed with the classes provided\par
+
+\pard\sa200\sl276\slmult1\ul\fs28 151. Walkthrough and Solution for the OOP Coffee Machine\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Here we went through how the instructor approached this problem\ul\fs28\par
+
+\pard\sa200\sl276\slmult1 152. Don't Forget to Review Occasionally\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 It's easy to make progress by watching videos and practicing the exercises provided\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 However, you can make even more progress by going back and reviewing what you've learned in the past\ul\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\ulnone\fs24 Repetition helps solidify the lessons you've learned\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 You can also retry or refactor the code that you've worked on\ul\fs28\par
+{\pntext\f2\'B7\tab}\ulnone\fs24 The code challenges can be redone in different ways then how you initially approached them\ul\fs28\par
+
+\pard\sa200\sl276\slmult1\par
+\par
+\ulnone\f1\fs22\par
+}
+ 

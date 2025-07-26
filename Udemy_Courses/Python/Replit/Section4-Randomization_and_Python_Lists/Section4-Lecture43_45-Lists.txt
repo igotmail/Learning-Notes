@@ -1,0 +1,72 @@
+# Lecture 43: Understanding the Offset and Appending Items to Lists
+print("LECTURE 43: Understanding the Offset and Appending Items to Lists")
+
+# Lists are a Data Structure -> Non-Primitive data type
+# You can store relational information in one data type - Lists
+# Lists also introduce order in your data. For example, you may organize information from 1st to last in your list (Who finished the race first?)
+# Lists are 0 Indexed -> Meaning that the number of the 1st index starts with 0
+
+statesAmerica = [
+  "Delaware", "Pennsylvania", "New Jersey", "Georgia", "Connecticut",
+  "Massachusetts", "Maryland", "South Carolina", "New Hampshire", "Virginia",
+  "New York", "North Carolina", "Rhode Island", "Vermont", "Kentucky",
+  "Tennessee", "Ohio", "Louisiana", "Indiana", "Mississippi", "Illinois",
+  "Alabama", "Maine", "Missouri", "Arkansas", "Michigan", "Florida", "Texas",
+  "Iowa", "Wisconsin", "California", "Minnesota", "Oregon", "Kansas",
+  "West Virginia", "Nevada", "Nebraska", "Colorado", "North Dakota",
+  "South Dakota", "Montana", "Washington", "Idaho", "Wyoming", "Utah",
+  "Oklahoma", "New Mexico", "Arizona", "Alaska", "Hawaii"
+]
+
+# You can use the index to select elements from the list:
+print(statesAmerica[2])  # New Jersey
+print(statesAmerica[-1])  # Hawaii
+
+# You can edit elements in a list as well
+statesAmerica[0] = "Deliwore"
+
+# Appending new elements to your list -> Additional functions for lists: https://docs.python.org/3/tutorial/datastructures.html
+statesAmerica.append("Asherville")
+
+# Extending a list with another list
+oddNumbers = [1, 3, 5, 7]
+oddNumbers.extend([2, 4, 6, 8])
+print(oddNumbers)
+
+# Printing out states of our list in Start:Stop:Step fashion
+# We start at Index 1: stop at index 50: and Skip an index for each print
+print(statesAmerica[1:50:2])
+
+# With programming, you shouldn't focus on memorizing functions. Instead, you should try new things out to broaden your experience with new topics
+
+print("")
+
+# ================================================================== #
+
+print("=============================================================")
+print("")
+print("LECTURE 45: IndexErrors and Working with Nested Lists")
+# Lecture 45: IndexErrors and Working with Nested Lists
+
+# The Index out of range error is an issue when accessing an index that doesn't exist in an iterable object: Lists, Sets, Dictionaries
+
+hobbies = ["Programming", "Bowling", "Exercising", "Reading"]
+
+print(len(hobbies)) # - Should be 4 elements/items
+# print(hobbies[5]) # - Generates an error as lists are 0 based. There are 4 indicies in this list but index 5 does not exist
+
+# Dirty Dozen Nested List Example: https://www.delish.com/food-news/a26872638/dirty-dozen-foods-list-2019/
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+
+dirtyDozen = [fruits, vegetables]
+print(dirtyDozen)
+
+# Declaring a list that has nested lists (Matrix - https://docs.python.org/3/tutorial/datastructures.html)
+anotherList = [
+  ["Jeff", "Jormy", "Jibble", "Jakes"],
+  ["Suff", "Sfammy", "Sudje", "Ssoup"]
+]
+print(anotherList[0][0]) # - Prints the first index in the first list: Jeff
+
+# ================================================================== #

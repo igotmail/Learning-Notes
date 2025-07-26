@@ -1,0 +1,41 @@
+# Lecture 127 - Squash Bugs With A Print() Statement
+
+# Steps to fix/clear/remove bugs:
+# 5) Using the print() statement
+# It's good practice to pause after every small block of code that you write to make sure that your program is working as intended. Using the print() statement can help you by letting you know that you program is getting/hitting a certain point of your code. 
+
+# My example:
+# sports = {
+#   "Baseball": "A game where people hit a ball and run around in circles to earn points. The more points a team scores, the more dizzy their opposing team becomes",
+#   "Soccer": "A game where people kick a ball back and forth on a large playing field. If players use their hands, they are sent to the shadow realm.",
+#   "American Football": "A game where a set of players line up to ferociously group hug each other to secure an oblong shaped ball."
+# }
+
+# for sport in sports:
+#   print(f"{sport}")
+#   if sport == "American Football":
+#     print("Getting here") # <-- Using print statement to ensure that the for loop works
+#     print("Where's Basketball at?")
+
+# sports["Basketball"] = "A game where 10 foot tall giants use parabolic magic to guide a ball from half court into a bucket."
+# print(sports["Basketball"])
+
+# Lecture Example:
+
+pages = 0
+word_per_page = 0
+pages = int(input("Number of pages: "))
+print(pages) # <-- Use print statements to show you what values are
+# Before:
+# word_per_page == int(input("Number of words per page: "))
+print(word_per_page == int(input("Number of words per page: ")))
+# After: 
+word_per_page = int(input("Number of words per page: "))
+print(word_per_page) # <-- Use print statements to show you what values are
+total_words = pages * word_per_page
+print(total_words)
+
+# What is this block of code doing? - We're gathering user input for 2 variables: pages & word_per_page. Then we're multiplying these 2 variables together to know the total words per page
+
+# What are your assumptions about word_per_page == int(input("Number of words per page: "))? - Ideally, we would think that the == operator would assign whatever value that the user enters to the word_per_page variable. Keep in mind that == is actually a comparison operator and does not actually assign any value to a variable. So, this line of code means is word_per_page equal to "user input?" Regardless if this comparison is true or not, the word_per_page variable will not be updated in any way and will remain 0.
+

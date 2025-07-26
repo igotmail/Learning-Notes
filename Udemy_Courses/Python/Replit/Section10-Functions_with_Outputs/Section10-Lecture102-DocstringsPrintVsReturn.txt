@@ -1,0 +1,42 @@
+# Lecture 102 - Docstrings Print Vs. Return
+
+# Docstrings - These are string literals that document the usage of a function, method, class, module, etc. It basically tells you what the body of code is doing.
+# These are used immediately after defining a function, method, class, module etc.
+# Docstring documentation: https://www.programiz.com/python-programming/docstrings
+
+# Examples from the Udemy Lecture:
+
+# Docstrings allow you to add a brief description of the functions that you create.
+# Remember that Doctrings need to be initialized at the beginning of the function 
+
+# Example 1: Single Line Docstrings:
+def add_numbers(a, b):
+  """Returns the sum of two numbers"""
+  return a + b
+print("The result of add_numbers(): " + str(add_numbers(40, 10)) + "\n")
+print("Lecture Example 1: Single Lined Docstrings: \n")
+print(add_numbers.__doc__)
+print("")
+print("======================================================= \n")
+
+# Example 2: Multilined Docstrings
+def multiply_numbers(a, b):
+  """
+  Returns the result of multiplying two numbers together
+
+    Parameters:
+      a (int): An integer
+      b (int): Another integer
+
+    Returns:
+      result (int): The result of multiplying a and b together
+  """
+  result = a * b
+  return result
+print("The result of multiply_numbers(): " + str(multiply_numbers(12, 12)) + "\n")
+print("Lecture Example 2: Multilined Docstrings: \n")
+print(multiply_numbers.__doc__)
+print("")
+print("======================================================= \n")
+
+# ================================================================= #

@@ -1,0 +1,18 @@
+# This program shows the different ways that you can use the print function to format strings
+whole_number = 5000
+fraction_number = 5000.48
+first_name = "BuffChickenNug"
+
+# 1) Using Concatenation with the + sign: (Make sure to parse non-string values to strings or a type error will be thrown)
+print(first_name + " owes " + str(whole_number) + " to Wendy's. \n")
+
+# 2) Using commas: (You can use multiple commas in a print statement)
+print(first_name, "knows what a fractional number is. An example of a fractional number is:", fraction_number, "\n")
+
+# 3) Using f-strings: (You can make changes/calculations to the variables passed in the f-string)
+print(f"{first_name} can count up to {whole_number + 40} \n")
+
+# 4) Using the .format() function: https://pythonguides.com/python-format-number-with-commas/
+print("You can format the number of decimal places are printed in a number: " + "{:.4f}".format(fraction_number))
+print("You can format a number to include commas: " + "{:,}".format(whole_number))
+print("You can format a number to include commas and extra decimal places: " + "{:,.4f}".format(fraction_number))

@@ -1,0 +1,160 @@
+# Lecture 105: While Loops, Flags, and Recursion
+
+# # Calculator - This is my rendition of the calculator program. Below is the professor's solution
+
+# # 1) Create 1 boolean variable to control the while loop and 4 functions for addition, subtraction, multiplication, and division
+# is_finished = False
+
+# # 1.1) This variable is used to count the amount of times the while loop in step 3 is executed.
+# # If this variable is greater than or equal to 2, then the program will end
+# # This variable prevents the program from continuing if the "continued_calculations" function is finished executing
+# continue_while_loop = 0
+
+# # Add Function:
+# def add(n1, n2):
+#   return n1 + n2
+
+# # Subtract Function:
+# def substract(n1, n2):
+#   return n1 - n2
+
+# # Multiplication Function:
+# def multiply(n1, n2):
+#   return n1 * n2
+
+# # Division Function:
+# def divide(n1, n2):
+#   return n1 / n2
+
+# # 4) Create a recursive function to allow the user to continue with their calculations
+# def continued_calculations(result):
+
+#   # 4.1) Display the types of operators the user could use using a for loop
+#   for operator in operations:
+#     print(operator)
+
+#   # 4.2) Ask which operator symbol the user will use
+#   operator_symbol = input(f"Which operator would you like to use with {result}?: ")
+
+#   # 4.3) Ask for the user's second number
+#   num2 = int(input("What is the second number?: "))
+
+#   # 4.4) Use the value for operator_symbol to call the key in the dictionary and store it in a variable - the variable will dynamically store the function based on the user's choice
+#   calculation_function = operations[operator_symbol]
+
+#   # 4.5) Store the result of the function's calculation
+#   answer = calculation_function(result, num2)
+
+#   # 4.6) Print out the equation and the result
+#   print(f"{result} {operator_symbol} {num2} = {answer}")
+
+#   # 4.7) Ask the user if they would like to continue using the program
+#   continue_program = input("Type 'y' to continue calculating with " + str(answer) + ", or type 'n' to exit.: ")
+
+#   if continue_program.lower() == "y":
+#     continued_calculations(answer)
+
+# # 2) Create a dictionary that holds the functions as values and the mathematical operators as keys
+# # Notice that we don't include the function's parenthesis "()"
+# # We will use a variable to capture a user's input for the mathematical operator, and then use another variable to capture which function we will want to use for our calculations
+# operations = {
+#   "+": add,
+#   "-": substract,
+#   "*": multiply,
+#   "/": divide,
+# }
+
+# # 2.1) Ask for the user's first number
+# num1 = int(input("What is the first number?: "))
+
+# # 2.2) Display the types of operators the user could use using a for loop
+# for operator in operations:
+#   print(operator)
+
+# # 3) Create a While loop to let the user continue using the calculator as much as they want
+# while is_finished is not True:
+#   # Keep in mind that the user will only hit the while loop once and then choose to continue with the "continued_calculations" function
+#   # If the while loop is executed more than once, the program stops
+#   continue_while_loop += 1
+
+#   # 3.1) If this variable is not lesser than 2, break the while loop. (Stops the program from continuing if the user exits from the continued_calculations function)
+#   if continue_while_loop < 2:
+#     # 3.1.1) Ask which operator symbol the user will use
+#     operator_symbol = input("Which operator would you like to use?: ")
+
+#     # 3.1.2) Ask for the user's second number
+#     num2 = int(input("What is the second number?: "))
+
+#     # 3.1.3) Use the value for operator_symbol to call the key in the dictionary and store it in a variable - the variable will dynamically store the function based on the user's choice
+#     calculation_function = operations[operator_symbol]
+
+#     # 3.1.4) Store the result of the function's calculation
+#     answer = calculation_function(num1, num2)
+
+#     # 3.1.5) Print out the equation and the result
+#     print(f"{num1} {operator_symbol} {num2} = {answer}")
+
+#     # 3.1.6) Ask the user if they would like to continue using the program
+#     continue_program = input("Type 'y' to continue calculating with " + str(answer) + ", or type 'n' to exit.: ")
+
+#     if continue_program.lower() == "y":
+#       continued_calculations(result=answer)
+#     else:
+#       is_finished = True
+#   else:
+#     is_finished = True
+
+# ================================================================ #
+
+# Professor's Solution
+
+# Add Function:
+def add(n1, n2):
+  return n1 + n2
+
+# Subtract Function:
+def substract(n1, n2):
+  return n1 - n2
+
+# Multiplication Function:
+def multiply(n1, n2):
+  return n1 * n2
+
+# Division Function:
+def divide(n1, n2):
+  return n1 / n2
+
+operations = {
+  "+": add,
+  "-": substract,
+  "*": multiply,
+  "/": divide,
+}
+
+# Instantiating calculator() for recursion. It will call itself when a user decides if they would like to continue or start a new calculation with the program. More information can be found in the "RecursionExamples" replit
+def calculator():
+  
+  num1 = int(input("What is the first number?: "))
+  
+  for operator in operations:
+    print(operator)
+  
+  # Creating a companion variable for the while loop. Break the loop if this variable is set to true
+  is_finished = False
+  
+  # While loop will continue to ask the user for numbers until the user decides that they're finished
+  while is_finished is not True:
+    operator_symbol = input("Pick an operation: ")
+    num2 = int(input("What is the next number?: "))
+    calculation_function = operations[operator_symbol]
+    answer = calculation_function(num1, num2)
+    print(f"{num1} {operator_symbol} {num2} = {answer}")
+  
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ").lower() == 'y':
+      num1 = answer
+    else:
+      # We still use the boolean variable here to possibly stop a memory leak. The while loop could still be active if we don't tell it to stop running
+      is_finished = True
+      # Calling the calculator() function will allow a user to start from the beginning again
+      calculator()
+calculator()

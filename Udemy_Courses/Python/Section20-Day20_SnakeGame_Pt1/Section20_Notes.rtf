@@ -1,0 +1,245 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24\lang9 Dylan Lawson\par
+Dr. Angela Yu\par
+Python Bootcamp\par
+7 February 2024\par
+
+\pard\sa200\sl276\slmult1\qc Python Bootcamp Notes\par
+
+\pard\sa200\sl276\slmult1\b\fs28 Section 20: Intermediate - Build the Snake Game Part 1: Animation & Coordinates\par
+\ul\b0 184. Day 20 Goals: What we will make by the end of the day\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ulnone\fs24 Here, we will use the knowledge that we've gained about Object Oriented Programming and the Turtle module to create the famous Snake Game\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The game will consist of a moving snake that is controlled with your keyboard\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Of course, you can grab food and have the snake grow in length once you collect the food\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Running into any obstacles like walls or yourself, would cause a game over\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 With this game, we will break it down into 7 separate steps. The first 3 steps will be completed on day 1. The remaining 4 will be completed on day 2:\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 1) Create the snake body - line up 3 squares for the body\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 2) Move the snake - initially it will move only forwards and then we can tell it how to change direction\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 3) Control the snake - We'll be using keyboard controls to direct the snake on the screen\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 4) Detect collision with food - once the snake makes contact with the food, another square will be added to the snake and a new piece of food will be placed randomly on the screen\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 5) Create a scoreboard - each time the snake comes in contact with a piece of food, increment the score by 1. This will be placed as text in the game screen\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 Use this as a count down time for the turtle racing game\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 6) Detect collision with wall - if the snake collides with a wall, the game should end. The game will display a "Game Over" message and the snake should no longer move\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 7) Detect collision with tail - if the snake collides with itself, the game should end. The game will display a "Game Over" message and the snake should no longer move\b\fs28\par
+
+\pard\sa200\sl276\slmult1\ul\b0 185. Screen Setup and Creating a Snake Body\ulnone\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Section20_Lecture_185_CreatingSnakeBody\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Here, we tackle the 1st step in building the snake game: Create the snake body \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 We set up the screen and align 3 squares with each other to form the snake\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 We begin by creating the screen object. Its size will be 600 for width and 600 for height\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Remember that this means that the screen's x and y axis will be: x -> -300, 300 and y -> -300, 300\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We also changed the background color of the screen to black using the bgcolor() method\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We also named the screen window by using the title() method\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 After that, we created the square segments using a for loop. I created my own for loop and the professor created a different one\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Both for loops are on the \b Section20_Lecture_185_CreatingSnakeBody \b0 file\b\fs28\par
+
+\pard\sa200\sl276\slmult1\ul\b0 186. Animating the Snake Segments on Screen\ulnone\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Section20_Lecture_185_CreatingSnakeBody\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Here, we tackle the 2nd step in building the snake game: Move the snake \b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We learn how to move and animate the snake by utilizing the \b tracer()\b0 , \b update()\b0 ,\b  \b0 and \b time.sleep() \b0 methods\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 In the game, the snake will be continuously moving forwards. The player will be able to control where the snake will go\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We want a way to organize the segments of the snake that we have\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 For this we've created a segments list that is populated by the for loop that creates the squares for our snake\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 We then initalize a new game_is_on boolean variable along with a while loop that contains a nested for loop\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 This boolean variable controls whether the while loop continues to execute\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The while loop will continuously execute the for loop\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The for loop will move each segment of the snake until the while loop stops\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 This is to allow the snake to move indefinitely until the player wins or loses\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ul\fs24 Tracer() Method:\ulnone\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 When each segment of the snake is created, this is something that we can visually see. \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 This animation is automatically performed in the program and it not something that we are controlling\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 To manually turn this animation off so that we can begin to control the animation, we use the \b tracer() \b0 method. \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 This method is under the screen's class in the Turtle documentation\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 tracer() has 2 parameters\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 n - takes a non negative integer (0 for off, 1 for on)\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 delay - takes a  non negative integer\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 When the tracer() method is off, that is when we can use the \b update()\b0  method\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 If you run your program with the tracer() method off and without the update method, the screen will not display anything even though there are no errors in your program\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Until we call the update() method, the screen will not refresh and nothing will be shown on screen\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ul\fs24 Update() Method:\ulnone\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 The update() method refreshes and redraws the screen. It can only be used when the tracer() method is turned off\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 When a screen is refreshed, that is when you will see objects on screen move\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 This is similar to how the old cathode ray tube or CRT monitors worked\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 They worked by painting on a strip of color line by line slowly covering the entire screen top to bottom\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Once it's reached the bottom of the screen it then starts at the top again and paints another strip of color line by line for the pixels in the next scene\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 This is also similar to how .gif animations work\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 gif animations are composed of many images\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The images themselves can be still frame images\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 When those images are combined and played back quickly, you'll produce a fluid animation\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 The update() method will be used so that we can control when the screen refreshes; therefore, we are controlling the animation of the snake too\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The update() method has no parameters\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 When we implement the update() method into our while loop, the program is updating the screen with everything that we've done up to that point in the program - creating the snake body and moving the snake body\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Viewing what the snake is doing might be difficult because it's moving fast\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We can use the \b time.sleep()\b0  method to help us see what is happening. \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ul\fs24 Sleep() Method:\ulnone\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 The \b time.sleep\lang1033 ()\b0  method suspends execution of the program by a certain number of seconds\b\fs28\lang9\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24\lang1033 The parameter that it takes can be an integer or a floating point number\b\fs28\lang9\par
+{\pntext\f2\'B7\tab}\b0\fs24\lang1033 Adding "1" as an argument would cause the program to execute every second\b\fs28\lang9\par
+{\pntext\f2\'B7\tab}\b0\fs24\lang1033 You will need to import the "time" module in your program in order to use it\b\fs28\lang9\par
+{\pntext\f2\'B7\tab}\b0\fs24\lang1033 Using the sleep() method allows you to slow the execution of your program and can be useful for debugging or if you wan to see how an animation plays out\b\fs28\lang9\par
+{\pntext\f2\'B7\tab}\b0\fs24\lang1033 The sleep() method is also essential to the program because it allows us to see the snake as it moves\b\fs28\lang9\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24\lang1033 Without it, the snake would move so fast that we wouldn't see it move or see it at all\b\fs28\lang9\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ul\fs24 Animating the Snake:\ulnone\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 At this point, we're able to animate the snake in a controlled environment\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 However, the 3 square objects we created for the snake are unlinked, meaning that they move independently from each other\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 If we tell the first object to rotate at a 90 degree angle and continue moving forward, we would see that the first square of the snake would start moving in circles while the rest of the body moves forward\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 We would need a better way to move these squares as a single unit\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Professor Yu explains that we can move the 3rd square of the snake first and move it where the 2nd square of the snake is\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 Then, we would move the 2nd square to where the 1st square of the snake is\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Essentially, we're just giving the position of each square the position of the sqaure that was created before it\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 So, the position of segment[2] = position of segment[1]\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The position of segment[1] = position of segment[0]\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 segment[0] would then be told to continuously move forward\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 I assume that we'll use an EventListener to control segment[0] as it keeps moving forward\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 This way, every square before the first square will be following the square ahead of it\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 The way that we can do this is by creating a for loop that loops through each of the segments starting from the last segment to the first segment - a reverse order for loop\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 The range function allows us to utilize the start:stop:step process (this is similar to how we've sliced iterable objects like strings, lists, dictionaries)\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 for segments in range(start=2, stop=0, step=-1)\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Keep in mind that the range function in Python is not quite pure Python. The range() function is from the C programming language\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 Python itself is written in the C programming language. This means that many libraries are written in C too. The range() function could be a part of those libriaries\b\fs28\par
+{\pntext\f2\'B7\tab}{\b0\fs24{\field{\*\fldinst{HYPERLINK https://www.scaler.com/topics/in-which-language-python-is-written/ }}{\fldrslt{https://www.scaler.com/topics/in-which-language-python-is-written/\ul0\cf0}}}}\f0\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 So, this means that we when use the start, stop, step keyword arguments, we'll receive an error because the range function doesn't have keyword arguments. However, it's easier to digitally see these keyword arguments as we loop through the segments list\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We specifically get a TypeError: range() takes no keyword arguments. So, we need to simply enter our arguments a positional arguments instead\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 range(len(segments) - 1, 0, -1) -> start = len(segments) - 1: stop=0: step=-1\b\fs28\par
+
+\pard\sa200\sl276\slmult1\ul\b0 187. Create a Snake Class & Move to OOP\ulnone\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Section20_Lecture187_CreatingSnakeBodyWithClass\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Here, we organize our code by moving all of the code centered around the snake's behavior into a separate class\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 The previous file \b Section20_Lecture_185_CreatingSnakeBody \b0 will serve as an informational project\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 This file shows us in detail with comments how we setup the snake game and animated the snake using the Update(), Tracer(), and Time.Sleep() methods/functions\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 It provides a way to create the snake game in a Procedural Programming point of view\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Section20_Lecture187_CreatingSnakeBodyWithClass \b0 will show us how to create the same program while using Object Oriented Programming\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 So, we'll have a Snake Class, a Food Class, and a Scoreboard Class\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 All of these classes will capturer the behavior (attributes and methods) of what each object does\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\ul\fs24 Snake Class:\ulnone\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 For the Snake class, we already have the code needed to make it. \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 1) The for loop that initializes the first 3 objects of the snake body\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 2) The for loop that tells segment 2 to move to segment 1, and then segment 1 to move to segment 0\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Refer back to Section17_Lecture154_CreatingClasses to understand the basics of creating Classes\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The part I struggled with to refactor our code to the Snake class was understanding how to create the Class Contructor (__init__) function and the methods for the snake\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 I knew that the __init__ function was called ever time the snake class was called. \b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 So, I thought I would have to somehow change the for loop that creates the first 3 segments to only create 1 segment and then find a way to add new segments to the snake later possibly with a variable that is updated each time the class is called\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 However, I then realized that we can do that in the Food class. Each time the snake makes contact with a piece of food, the Food class could then call the Snake calls for a specialized method that we haven't created yet\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The Snake __init__ function would only be called once to setup the snake with 3 squares. Afterwards, new squares would be added with the use of the other Classes\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 So, I basically took what we had from the main.py file and converted it to the Snake class\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 I did the same with the for loop that moves the segments 1 at  a time and turned this for loop into a method called \b move()\fs28\par
+{\pntext\f2\'B7\tab}\fs24 Section20_Lecture187_CreatingSnakeBodyWithClass \b0 has more details on how this class was specifically set up\b\fs28\par
+
+\pard\sa200\sl276\slmult1\ul\b0 188. How to Control the Snake with a Keypress\ulnone\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\fs24 Section20_Lecture187_CreatingSnakeBodyWithClass \fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Here, we tackle the 3rd step in building the snake game: Control the snake\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We will use the up, down, left, and right arrow keys on our keyboard to control the snake\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We will also be using the keybinding event listeners that we learned about in Section 19. \b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 To start, we want to add the \b snake_screen.listen()\b0  method after we've initalized the snake object in the main.py file\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 The \b listen()\b0  method allows us to use the keybinding event listeners to our program. \b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 Since moving the snake up, down. left, or right is a behavior of the snake, we will create 4 more methods in the snake class - up(), down(), left(), and right()\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 In these methods, we want to control the first snake segment and change it's direction \b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Remember, the first snake segment is being moved 20 paces. The other segements behind it are simply taking the position of the segment in front of it\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Each of these methods will simply change the direction of the first segement. We can do this by using the \b setheading()\b0  method\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 self.snake.segments[0].setheading()\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The \b setheading()\b0  method will allow us to use degrees of the unit circle to make the first segment to move up (90 degrees), down (270 degrees), left (180 degrees), and right (0 degrees)\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Professor Yu opts into creating another attribute for the snake -> self.head = self.snake_segment[0]\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 This allows us to access the 1st segment of the snake a tad easier\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 Once we get the methods established, we then call those methods in the main.py file\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 In previous lessons, we used the \b onkey() \b0 event listener; however, this time we'll use the \b onkeypress() \b0 event listener\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 onkey()\b0  - responds when a key is pressed and then release\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 The code inside the methods in the Snake class will execute once a key has been pressed and released\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\fs24 onkeypress()\b0  - responds when a key is pressed\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1800\sa200\sl276\slmult1\b0\fs24 The code inside the methods in the Snake class will execute once a key has been pressed - this allows for a faster response from the program\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 snake_screen.listen()\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 snake_screen.onkeypress(fun=snake.up, key=Up)\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 Professor Yu also addresses the issue where a player could turn the snake into itself\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 If the snake was moving up, and the player pressed the down arrow key, the snake would move down into itself. This should not be allowed to happen\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We create 4 constants UP, DOWN, LEFT, and RIGHT in the Snake class. Each constant is equal to their respective direction in the unit circle\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 We then modified the methods that move the snake: \b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 if self.head.heading() != RIGHT:\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\b0\fs24 self.head.setheading(LEFT)\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 This essentially means that if the first segment of the snake is not moving 0 (right) degrees, then the snake can turn 180 degrees (left)\b\fs28\par
+
+\pard\sa200\sl276\slmult1\ul\b0 189. Programming is not Memorising\ulnone\b\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0\fs24 Not being able to remember everything about programming is okay\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Information is vastly easier to obtain in today's age. If you forget something, you can perform a quick Google search to find out what you need\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 The important part is to understand how things work\b\fs28\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1\b0\fs24 Becoming more familiar with the tools, libraries, classes, etc. that you use and how to use them makes you exceptionally more adept in programming\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 Knowing \b when \b0 to use code, \b how \b0 to use it, \b where \b0 to use it, \b what \b0 it's used for, and \b why\b0  you're using it is the important part\b\fs28\par
+{\pntext\f2\'B7\tab}\b0\fs24 If you understand these things, remembering how to use those tools, libraries, classes, etc. becomes much easier\b\fs28\par
+
+\pard\sa200\sl276\slmult1\b0\f1\fs22\par
+}
+ 

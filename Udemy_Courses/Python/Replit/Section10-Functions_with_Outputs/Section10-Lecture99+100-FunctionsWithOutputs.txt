@@ -1,0 +1,69 @@
+# Lecture 99 - Functions with Outputs
+
+# Remember that Functions are useful because they allow programmers to develop a set of instructions that can be executed repeatedly. You do not need to continuously write the same code over and over again. Functions eliminate redundancy.
+
+# Refer to Section6-Lecture59+60-Functions and Section8-Lecture81+82-FunctionsWithInput to refresh on the basics of functions:
+
+# 1) https://replit.com/@igotmail/Section6-Lecture5960-Functions#main.py - Takeaway Points: Functions help reduce the amount of code you have to write
+# 2) https://replit.com/@igotmail/Section8-Lecture8182-FunctionsWithInput#main.py - Takeaway Points: Functions can modify code in the function and do something different each time input was passed in
+
+# In this lesson: Functions allow you to have an output value once the function is completed by using the "return" keyword
+# Return Keyword Information: https://www.w3schools.com/python/ref_keyword_return.asp
+# Basically, the return keyword specifies what a function will output
+# Functions can be thought of as machines that process input
+# Input - Processing - Storage - Output
+
+# Keep in mind that the return keyword won't naturally print to the console or be assigned to a variable.
+# You'll need to manually use the print() function with your function to see the results. 
+def my_function():
+  result = 6 * 2
+  return result
+print("Using the print() function to retrieve output from my_function() " + str(my_function()) + "\n")
+
+# You can also assign the return value of a function to a variable
+output = my_function()
+print("Using a variable 'output' to capture the output of my_function() " + str(output) + "\n")
+
+print("---------------------------------------------------------- \n")
+
+# Functions with Output:
+def format_name(f_name, l_name):
+  formatted_first_name = f_name[0].upper() + f_name[1:len(f_name)].lower()
+  formatted_last_name = l_name[0].upper() + l_name[1:len(l_name)].lower()
+  final_result = formatted_first_name + " " + formatted_last_name
+  return final_result
+
+# Alternatively, you can use the .title() function
+def format_name2(f_name, l_name):
+  formatted_name = f_name.title() + " " + l_name.title()
+  return formatted_name
+  
+user_first_name = input("What is your first name?: ")
+user_last_name = input("What is your last name?: ")
+print("")
+print("format_name(): " + format_name(f_name=user_first_name, l_name=user_last_name) + "\n")
+print("format_name2(): " + format_name2(f_name=user_first_name, l_name=user_last_name) + 
+"\n")
+
+print("---------------------------------------------------------- \n")
+
+# ================================================================= #
+
+# Lecture 100: Multiple Return Values
+
+# The "return" keyword signifies the end of the function. Any lines of code after the return keyword is not exectuted
+def no_code_after_return():
+  result = 4 * 20
+  return result
+  print("This is the result: " + str(result))
+print("The print statement in the no_code_after_return() function is not executed: " + str(no_code_after_return()) + "\n")
+
+# You can use the input() function as an argument for a function
+# This function has multiple return values to handle a user entering or not entering any string values
+def empty_name_example(f_name, l_name):
+  if f_name == "" or l_name == "":
+    return "Please enter your first and last name."
+  formatted_f_name = f_name.title()
+  formatted_l_name = l_name.title()
+  return f"{formatted_f_name} {formatted_l_name}"
+print("empty_name_example(): " + empty_name_example(f_name=input("What is your first name?: "), l_name=input("What is your last name?: ")))

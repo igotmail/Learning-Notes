@@ -1,0 +1,89 @@
+print('''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.")
+
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+
+#Write your code below this line 👇
+
+print("The fabled treasure is stored on an island only accessible by boat. Make the correct decisions and you will reach the treasure and live a carefree life for the rest of your days. \n")
+    
+# Importing pathChoice to manage all my code in a couple modules
+import pathChoice
+
+# 1) Create a variable to capture the user's input
+print("As you set off for your adventure, the path that you take divides into two roads. You can choose 'left' or 'right'. \n")
+userChoice = input("Which path do you take?: ").lower() 
+
+# 2) Create an if statement to capture the user's first decision
+if userChoice == "right":
+  print("")
+  print("The rightmost path leads you to the edge of a spacious and ominous forest.\n")
+  userChoice = input("Do you dare to enter the forest or go back to where you started?: ").lower()
+  if userChoice == "back":
+    pathChoice.pathChoice()
+  else:
+    print("")
+    print("You became lost within the forest. Search parties came looking for you but never did find a trace of you.")
+    print("GAME OVER - Try again?")
+elif userChoice == "left":
+  print("")
+  print("Your journey on the leftmost path takes you to an expansive lake. You spot a peculiar looking island. With interest, you want to swim over to the distant island but hesitate as you know not what lurks beneath the water. \n")
+  userChoice = input("Do you swim across the lake or wait for a boat?: ").lower()
+
+  # 3) Create a nested if statement to capture the user's second decision
+  if userChoice == "wait":
+    print("")
+    print("The island's dungeon door rumbles with a heavy creak as you force it open. Feeling that you are close to the treasure, your heart pounds with excitment. But the spur of the moment is short-lived. Before you are 3 doors: One Red, one Blue, one Green. \n")
+    print("The Red door is hot to the touch.")
+    print("The Blue door appears to have a thin wire attached to its outter frame.")
+    print("The Green door is lightly dusted in rust. \n")
+    userChoice = input("Which door shall you take?: ").lower()
+
+    # 4) Create a nested if statement to capture the user's third decision
+    if userChoice == "red":
+      print("")
+      print("Your intuition has served you well thus far but has failed you now. The Red door bellows with flames as you open it, leaving you as a burnt crisp on the aging floor.")
+      print("GAME OVER - Try again?")
+    elif userChoice == "blue":
+      print("")
+      print("Your excitment got the better of you. The thin wire was ignored. As you opened the Blue door, a large double sided axe swings downwards and slices you in two.")
+      print("GAME OVER - Try again?")
+    elif userChoice == "green":
+      print("")
+      print("Taking note of the other 2 doors, the Green door seemed to be the least suspicious. While carefully opening the door, you notice that the walls around you begin to glow a bright sheen of yellow. Laying before you was the famous treasure. Mountains of glamorous items and objects stacked high across the room. You've done it. As you take a seat next to your wonderful prize you wonder, 'How am I to get this home?'")
+      print("YOU WIN - Play again?")
+    else:
+      print("")
+      print("You choose to head home as the choices that stood before you were too nerve racking. Tomorrow you'll come back and see if you can build up the courage to open one of the doors.")
+      print("YOU SURVIVED - But the treasure remains uncovered. Try again?")
+  else:
+    print("")
+    print("Ignoring what could be in the water, you decide to swim across the lake to reach the island. 100 feet from the shore and you feel an unknown force brush against your leg. Before you could react, an entity death-grips your ankle and submerges your body. As the sudden increase in depth fades away the sunlight, you thought to yourself, 'I should have waited for the boat.'")
+    print("GAME OVER")
+else:
+  print("")
+  # print("While trekking the rightmost path, you fell into a hole.")
+  print("You decided that today wasn't the day to go adventuring. Time to head home. \n")
+  print("GAME OVER")

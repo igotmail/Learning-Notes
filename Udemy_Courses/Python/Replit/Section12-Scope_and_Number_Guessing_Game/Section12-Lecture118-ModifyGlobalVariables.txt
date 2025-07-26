@@ -1,0 +1,34 @@
+# Lecture 118: How to Modify a Global Variable
+
+# Modifying Global Scope
+
+enemies = 1
+
+def increase_enemies():
+  # By trying to increment this variable, we will get the following error: local variable 'enemies' defined in enclosing scope on line 5 referenced before assignment
+  # This means that the editor thinks we're trying to modify a local variable in the increase_enemies function that isn't created yet
+  # To modify the enemies variable that is outside of this function we need to use the 'global' keyword. This helps the function by letting it know that there is a variable outside of the function called 'enemies'
+  # global enemies
+  enemies + 1 # <-- This increases the enemies value to 2 but doesn't do anything with it. The print statement will then print the value 1 because we're not updating/assigning the variable enemies with new information, just adding 1 to it and then nothing else.
+  # Using enemies += 1 or enemies = enemies + 1 would not work because the editor stil thinks we would be trying to modfiy a local variable that does not exist.
+# Refer to Lecture 118 for the answer to your question regarding this behavior
+  print(f"enemies inside the increase_enemies() function: {enemies}")
+
+increase_enemies()
+print(f"enemies outside the increase_enemies() function: {enemies}")
+
+# Keep in mind that using the global keyword to modify global variables can be prone to errors/bugs and can be confusing
+# For example, the global variable could have been created anywhere in the editor. By the time the function utilizes the global variable, it could have been modified by plenty of other different objects in your code which could vary results
+
+# Alternatively, you can use the return keyword to update the global variable itself
+
+allies = 1
+def increase_allies():
+  # We can do this because allies is a global variable
+  # The reason why the return keyword works is because we're updating/assigning the output of this function to the allies variable after the function executes. 
+  # The enemies variable on line 12 was simply adding 1 to the global variable. We weren't updating or assigning the enemies variable to anything, just adding 1
+  print(f"Printing allies to the console from inside the increase_allies() function: {allies}")
+  return allies + 1
+
+allies = increase_allies()
+print(f"Printing allies to the console from outside the increase_allies() fucntion: {allies}")
